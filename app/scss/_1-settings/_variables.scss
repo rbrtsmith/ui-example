@@ -2,22 +2,6 @@
     SETTINGS -> VARIABLES
 \*------------------------------------*/
 
-/*
-
-
-FIX BUG IN CALANDER.JS PLUGIN
-
-remove block-form and text input into objects.
-
-Make modal-dialog.js accept calls to open modals outside of the function.
-
-Rename classnames in styled select to styled select.
-
-fix borders on pagination so it looks good when tiling onto two rows.
-
-fix section collapse right padding in heading - goes underneath the chevron.
-
-*/
 
 
 /*------------------------------------*\
@@ -169,11 +153,11 @@ $navbar-bp:  800px; /* [1] */
  */
 $grid-breakpoints: (
     /* [1]      [2] */
-    ( xxs-up,   $screen-xxs ),
-    ( xs-up,    $screen-xs ),
-    ( sm-up,    $screen-sm ),
-    ( md-up,    $screen-md ),
-    ( lg-up,    $screen-lg )
+//    ( xxs-up,   $screen-xxs ),
+//    ( xs-up,    $screen-xs ),
+//    ( sm-up,    $screen-sm ),
+//    ( md-up,    $screen-md ),
+//    ( lg-up,    $screen-lg )
 );
 
 
@@ -186,5 +170,4 @@ $grid-breakpoints: (
  * Any miscellaneous global variables.
  */
 $brand-radius: 4px;
-$fade-in-site-transition: .5s;
 $brand-transition: .2s;
