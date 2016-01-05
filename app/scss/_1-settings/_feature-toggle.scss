@@ -3,9 +3,9 @@
      Global options & config switches
 \*------------------------------------*/
 /**
- *  Site wide options to turn on various functionality, modules and functions.
+ *  Site wide options to turn on various featurs.
  *
- *  NOTE - Turning on all functions will result in more bloated code.
+ *  NOTE - Turning on all features will result in more bloated code.
  *  You should only set the those that you intend to use to true.
  */
 
@@ -103,76 +103,6 @@ $use-transformer:       false;
     $COMPONENTS
 \*------------------------------------*/
 
-/* $FORMS */
-
-/* BLOCK-FORM */
-$use-block-form:            false;
-/* FILE-UPLOAD */
-$use-file-upload:           false;
-/* INPUT-ADDON */
-$use-input-addon:           false;
-/* PLACEHOLDER-CONTROL */
-$use-placeholder-control:   false;
-/* STYLED-SELECT */
-$use-styled-select:         false;
-/* TEXT-INPUT */
-$use-text-input:            false;
-/* EXPANDING-FORM -  Dependencies block-form, text-input, input-addon toggle-ui-popup.js */
-$use-expanding-form:        false;
-
-
-/* $LISTS */
-/* UI-LIST - Dependencies: bare-list */
-$use-ui-list:       false; 
-
-
-/* NAVS */
-
-/* NAVBAR - Dependencies: inline-list, IF USING `sub-nav` dependencies: flyout. */
-$use-navbar:        true;
-/* PAGINATION - Dependencies: inline-list */
-$use-pagination:    false; 
-
-
-
-/* GENERIC */
-        
-
-/* BUTTONS */
-$use-buttons:           true;
-/* CALANDER */
-$use-calendar:    		false;
-/* GOOGLEMAPS */
-$use-googlemaps:        false;
-/* IMG CONTROL- Dependencies: img-control.js */
-$use-img-control:       true;
-/* MODAL - Dependencies: flag, modal-dialog.js */
-$use-modal:             false;  
-/* SLIDER - Dependencies: slider.js */
-$use-slider: true;
-/* BANNER-SLIDER - Dependencies: slider */
-$use-banner-slider:     true;
-/* SECTION-COLLAPSE - Dependencies: section-collapse.js */
-$use-section-collapse:  false;
-/* SEARCH-RESULTS */
-$use-search-results:    false;
-/* THUMBNAIL-GALLERY - Dependencies: thumbnail-gallery.js */
-$use-thumbnail-gallery: false;
-/* SVG-ICONS */
-$use-svg-icons:         true;
-/* STEPPER-BOXES */
-$use-stepper-box:       false;
-/* TABS - Dependencies: tabs.js */
-$use-tabs:              false;
-/* LOAD-SPINNER  */
-$use-load-spinner:      false;
-/* IMAGE REPLACEMENT */
-$use-image-replacement: false;
-/* QUOTES */
-$use-quotes:            false;
-/* TOUCH-FRIENDLY */
-$use-touch-friendly:    false;
-
 
 
 
@@ -180,14 +110,6 @@ $use-touch-friendly:    false;
     $TRUMPS
 \*------------------------------------*/
 
-/* FAKE-LINK */
-$use-fake-link: false;
-/* SHAME */
-$use-shame:     true;
-
-
-/* GENERIC */
-$use-fill-height: true;
 
 
 
@@ -929,3 +851,6 @@ $use-center-block:  false;
 $use-block:         false;
 $use-inline-block:  false;
 
+
+/* GENERIC */
+$use-fill-height: true;

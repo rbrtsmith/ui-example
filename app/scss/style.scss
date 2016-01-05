@@ -13,14 +13,10 @@
 @import '_2-tools/mixins/_root-size';
 @import '_2-tools/mixins/_font-size';
 @import '_2-tools/mixins/_helpers';
-@import '_2-tools/mixins/_positioning';
 @import '_2-tools/mixins/_ui-link';
-@import '_2-tools/mixins/_site-module-collapse';
 @import '_2-tools/mixins/_line-height';
-@import '_2-tools/mixins/_stagger-transition';
 @import '_2-tools/mixins/_bare-list';
 @import '_2-tools/mixins/_hidden';
-@import '_2-tools/mixins/_visible';
 @import '_2-tools/mixins/_make-fractions';
 @import '_2-tools/mixins/_make-offsets';
 
@@ -57,42 +53,9 @@
 @import '_5-objects/generic/_flyout';
 @import '_5-objects/generic/_transformer';
 /* #COMPONENTS: Designed components, chunks of UI */
-/* Forms */
-@import '_6-components/forms/_block-form';
-@import '_6-components/forms/_text-input';
-@import '_6-components/forms/_input-addon';
-@import '_6-components/forms/_file-upload';
-@import '_6-components/forms/_styled-select';
-@import '_6-components/forms/_placeholder-control';
-@import '_6-components/forms/_expanding-form';
-/* Lists */
-@import '_6-components/lists/_ui-list';
-/* Navs */
-@import '_6-components/navs/_pagination';
-@import '_6-components/navs/_navbar';
 /* Genric */
-@import '_6-components/generic/_stepper-boxes';
-@import '_6-components/generic/_img-control';
-@import '_6-components/generic/_buttons';
-@import '_6-components/generic/_svg-icons';
-@import '_6-components/generic/_googlemaps';
-@import '_6-components/generic/_thumbnail-gallery';
-@import '_6-components/generic/_section-collapse';
-@import '_6-components/generic/_search-results';
-@import '_6-components/generic/_slider';
-@import '_6-components/generic/_banner-slider';
-@import '_6-components/generic/_modal';
-@import '_6-components/generic/_tabs';
-@import '_6-components/generic/_site-footer';
-@import '_6-components/generic/_site-header';
-@import '_6-components/generic/_load-spinner';
-@import '_6-components/generic/_page-content';
-@import '_6-components/generic/_breakpoint-hook-for-js';
-@import '_6-components/generic/_scrollbar-measure';
-@import '_6-components/generic/_image-replacement';
-@import '_6-components/generic/_quotes';
-@import '_6-components/generic/_touch-friendly';
-@import '_6-components/generic/_calendar';
+/*@import '_6-components/generic/_stepper-boxes'; */
+
 
 /* #TRUMPS: Helpers & overrides */
 @import '_7-trumps/_shame';
