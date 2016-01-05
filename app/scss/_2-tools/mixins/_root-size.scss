@@ -1,0 +1,41 @@
+// /*------------------------------------*\
+//    #TOOLS -> MIXINS -> ROOT SIZE
+// 
+// \*------------------------------------*/
+
+
+
+
+///*
+// * Responsive root sizing mixin.
+// * 
+// * Reduces the root font size by the coefficient on each loop.
+// * narrows.
+// *
+// * Written by Robert Smith
+// *
+// */
+
+@mixin root-size() {
+    
+    // set breakpoints
+    $screen-sizes: $screen-sm, $screen-xs;
+    // set base font-size
+    font-size: nth($root-sizing-unit,1);
+    
+    // loop through the screen sizes list.
+    @each $scr in $screen-sizes {
+        
+        //get current index of the list
+        $index: index($screen-sizes, $scr);
+
+        // calculate font size reduction value by multiplying the
+        // coefficient by the current index calue
+        $reduction: (($root-sizing-coefficient * $index));
+        
+        // get the current index
+        @media (max-width: $scr) {
+            font-size: $root-sizing-unit - $reduction;
+        }
+    }
+}

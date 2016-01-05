@@ -1,0 +1,26 @@
+@if ($use-block-form) {
+/*------------------------------------*\
+    COMPONENTS -> FORMS -> ##BLOCK-FORM
+\*------------------------------------*/
+
+/**
+ * Makes form elements full width of their containers.
+ *
+
+<form class="c-block-form" action="contact-thanks" method="post">
+    <input type="text" class="c-text-input" name="" placeholder="">
+    <button type="submit">
+        skicka
+    </button>
+</form>
+
+ */
+
+
+.c-block-form .c-text-input,
+.c-block-form select,
+.c-block-form textarea {
+    width: 100%;
+}
+
+} /* Close @if */

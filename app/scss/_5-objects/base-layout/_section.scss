@@ -1,0 +1,24 @@
+@if ($use-section) {
+/*------------------------------------*\
+    OBJECTS -> BASE-LAYOUT -> #SECTION
+\*------------------------------------*/
+
+$section-padding: $spacing-unit * 2;
+
+/**
+ * Adds padding top and bottom to give some breathing space
+ * between sections -- usually used on the section tag but can be
+ * any block element such as a div.
+
+ <section class="o-section">
+ 	...
+ </section>
+ *
+ */
+
+.o-section {
+	padding-top: $section-padding;
+	padding-bottom: $section-padding;
+}
+
+} /* Close @if */

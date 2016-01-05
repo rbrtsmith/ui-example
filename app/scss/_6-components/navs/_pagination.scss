@@ -1,0 +1,71 @@
+@if ($use-pagination) {
+/*------------------------------------*\
+    COMPONENTS -> NAVS -> ##PAGINATION
+\*------------------------------------*/
+/**
+ *
+ * Pagination object, extends nav
+ * some funky commenting is required to remove whitespace from
+ * around the inline-blocks.
+ *
+ * DEPENDENCIES:
+ * - ui-link
+ *
+
+<nav class="o-ui-links u-text-center" role="navigation">
+    <ol class="o-inline-list c-pagination">
+        <li><a href="#">&laquo;</a></li>
+        <li><a href="#">1</a></li>
+        <li class="current-menu-item"><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">&raquo;</a></li>
+    </ol>
+</nav>
+
+ *
+ */
+
+
+$use-borders: false;
+$border-color: $base-border-color;
+/* Padding within each box */
+$padding-ends: .5rem;
+$padding-sides: 1rem;
+
+.c-pagination {
+
+    display: inline-block;
+    text-align: center;
+    @if ($use-borders) {
+        border-right: 1px solid $border-color;        
+    }
+}
+
+    .c-pagination > li {
+        padding: $padding-ends $padding-sides;
+        @if ($use-borders) {
+            border: 1px solid $border-color;
+            border-right-width: 0;
+        }
+    }
+
+    .c-pagination a {
+        display: block;
+        margin-top: -$padding-ends;
+        margin-bottom: -$padding-ends;
+        margin-left: -$padding-sides;
+        margin-right: -$padding-sides;
+        padding: $padding-ends $padding-sides;
+    }
+
+    .c-pagination .current-menu-item a,
+    .c-pagination a:hover,
+    .c-pagination a:focus {
+    	background: $brand-color;
+    	color: white;
+    }
+
+
+} /* Close @if */

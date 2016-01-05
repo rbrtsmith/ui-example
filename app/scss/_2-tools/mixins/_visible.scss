@@ -1,0 +1,10 @@
+// /*------------------------------------*\
+//    #TOOLS -> MIXINS -> VISIBLE
+// \*------------------------------------*/
+@mixin visible() {
+    position: static;
+    height: auto;
+    width: auto;
+    overflow: visible;
+    clip: auto;
+}

@@ -1,0 +1,403 @@
+@if $use-navbar {
+/*------------------------------------*\
+    COMPONENTS -> NAVS -> #NAVBAR
+\*------------------------------------*/
+
+$use-subnav: true;
+
+/*---Architecture---*/
+$navbar-item-spacing: 2rem;
+$navbar-height: 95px;
+$navbar-shrink-height: 55px;
+$navbar-collapsed-height: 45px;
+$navbar-collapsed-item-height: 45px;
+    // Sub nav
+    $sub-menu-line-height: 40px;
+
+/*---Colors---*/
+$navbar-background-color: #eee;
+$burgers-color: $base-text-color;
+$collapsed-items-color: $base-text-color;
+
+
+/**
+ * The navbar is a full width bar that contains navigation,
+ * It relies on the jQuery file navbar.js located in js/source/scripts/components
+ * Extends the nav object,
+ * Supports sub navs in both expanded and collapsed state.
+
+
+*/
+    
+.c-navbar-wrap,
+.c-navbar {
+    height: $navbar-height;
+    line-height: $navbar-height;
+    background: $navbar-background-color;
+    transition: height 0.2s, line-height 0.2s;
+    @include navbar-bp-down {
+        transition: none;
+    }
+    /** Collapsed navbar scrollbar styling */
+    & ::-webkit-scrollbar { 
+        width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: white;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: lighten($collapsed-items-color, 20%);
+    }
+}
+
+.c-navbar-wrap {
+    /**
+     * Placeholder for the navbar, stops the height of the page collapsong
+     * up if/when navbar becomes position fixed by taking up the same height.
+     */
+    position: relative;
+    @include navbar-bp-down {
+        height: $navbar-collapsed-height;        
+    }
+}
+
+.c-navbar {
+    /**
+     * Contains the main navigation and any number of non-nav items such as
+     * `site-logo` search form, CTA's etc.
+     */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    /** Place above page-content psuedo overlay */
+    z-index: 4;
+    will-change: transform;
+    @include navbar-bp-up {
+        padding-left: ($spacing-unit / 2);
+        padding-right: ($spacing-unit / 2);        
+    }
+    @include navbar-bp-down {
+        height: $navbar-collapsed-height;
+        line-height: $navbar-collapsed-height;
+        overflow: hidden;        
+    }
+
+    &.is-open {
+        /** Make navbar visibile when toggled */
+        overflow: visible;
+    }
+
+    &.is-fixed {
+        /** When navbar becomes fixed to the top of the screen */
+        position: fixed;
+    }
+
+    &.is-fixed.is-shrunk {
+        /** reduce the height of the navbar when scrolled */ 
+        @include navbar-bp-up {
+            height: $navbar-shrink-height;
+            line-height: $navbar-shrink-height;                
+        }
+    }        
+}
+
+
+
+    .c-navbar__hidden-expanded {
+        /** hide when viewport is larger than `$navbar-bp` */
+        @include navbar-bp-up {
+            position: absolute;
+            left: -9999px;
+        }
+    }
+
+    .c-navbar__nav {
+        /**
+         * The navigation menu itself.
+         */
+        -webkit-overflow-scrolling: touch;
+        @include navbar-bp-down {
+            overflow: auto;
+            width: 100%;
+            height: 0;
+            background: $collapsed-items-color;
+            color: white;
+            line-height: $navbar-collapsed-item-height;
+            backface-visibility: hidden;            
+        }
+        .is-open & {
+            /** Make navbar visibile when toggled */
+            height: auto;
+        }
+    }
+
+        .c-navbar__nav a {
+            display: block;
+            padding: 0 $navbar-item-spacing;
+            -webkit-tap-highlight-color: transparent;                
+            @include navbar-bp-down {
+                padding: 0 ($spacing-unit / 2);
+            }
+        }
+
+        .c-navbar__nav li {
+            @include navbar-bp-down {
+                /**
+                 * Make each item stack and add a subdued border-top
+                 */
+                width: 100%;
+                border-top: 1px solid lighten($collapsed-items-color, 10%);                
+            }
+        }
+
+        .c-navbar__nav .current-menu-item > a,
+        .c-navbar__nav .current-page-ancestor > a,
+        .c-navbar__nav li:hover > a {
+            color: $brand-color;
+        }
+
+
+
+
+
+
+
+/*------------------------------------*\
+    SUBNAV
+\*------------------------------------*/
+@if $use-subnav {
+
+    .c-navbar__subnav {
+        @include navbar-bp-up {
+            min-width: 120px;
+            line-height: $sub-menu-line-height;
+            background: $navbar-background-color;
+            white-space: nowrap;                                        
+        }
+        @include navbar-bp-down {
+            width: 100%;
+            display: none;
+            position: static;
+            height: auto;
+            clip: auto;
+            transform: none;
+            text-indent: 15px;
+            .sub-menu {
+                /** Nested subnav */
+                text-indent: 30px;
+            }                    
+        }
+    }
+
+        .c-navbar__subnav-parent > a {
+            /**
+             * Anchor inside of subnav_parent node, contains a toggle button on
+             *  Screens below the `$navbar-bp` breakpoint.
+             */
+            position: relative;
+            @include navbar-bp-up {
+                        
+            }
+        }
+
+    .c-navbar__chevron {
+        /**
+         * SVG chevorn icon to indicate to user that this item conrains a subnav.
+         */
+        $width: 6px;
+        $height: 10px;
+
+        position: absolute;
+        top: 50%;
+        right: ($navbar-item-spacing / 2);
+        width: $width;
+        height: $height;
+        margin-top: -($height / 2);
+        margin-right: -($width / 2);
+        transform: rotate(90deg);
+        fill: currentColor;
+        @include navbar-bp-down {
+            right: 50%;
+        }
+    }
+
+    .c-navbar__subnav-toggle  {
+        /**
+         * Button that allows subnav to be toggled.
+         */
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        color: inherit;
+        background: transparent;
+        @include navbar-bp-down {
+            width: $navbar-collapsed-height + 5;
+            border-left: 1px solid lighten($collapsed-items-color, 10%);
+            color: white;
+            -webkit-tap-highlight-color:transparent;                    
+        }        
+    }
+
+@include navbar-bp-down {
+        .c-navbar__nav .is-open a { /** subnav open */
+            background: lighten($collapsed-items-color, 5%);
+        }
+
+            .c-navbar__nav .is-open > .c-navbar__subnav {
+                display: block;
+            }
+
+            .c-navbar__nav .is-open > a .c-navbar__subnav-toggle {
+                background: $brand-color;
+            }
+
+            .c-navbar__nav .is-open > a .c-navbar__chevron {
+                transform: rotate(-90deg);
+            }
+
+            .c-navbar__nav .is-open .is-open a { /** nested subnav open */
+                    background: lighten($collapsed-items-color, 10%);
+                }        
+            }
+
+} /** Close @if use-subnav */
+
+
+
+
+
+
+
+/*------------------------------------*\
+    NAVBAR TOGGLE - BURGERS
+\*------------------------------------*/
+    .c-navbar__toggle {
+        /**
+         * Toggle button for navbar.
+         */
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: auto;
+        height: $navbar-collapsed-height;
+        width: 50px;
+        font-size: 0;
+        line-height: 0;
+        text-align: right;
+        background: transparent;
+        color: $burgers-color;
+        -webkit-tap-highlight-color:transparent;
+        &::before {
+            $height: 30px;
+
+            position: absolute;
+            top: 50%;
+            right: 0;
+            height: $height;
+            line-height: $height;
+            margin-top: -($height / 2);
+            padding-right: 36px;                    
+            font-size: 10px;
+            content: attr(data-open-text) "\00A0";
+            .is-open & {
+                content: attr(data-close-text) "\00A0";
+            }
+        }
+        @include navbar-bp-up {
+            display: none;
+        }
+    }
+
+
+    $burger-height: 3px;
+    .c-navbar__burger {
+        /**
+         * Animated burger icons inside the navbar toggle
+         */
+
+        position: relative;
+        display: inline-block;
+        width: 20px;
+        height: $burger-height;
+        background: $burgers-color;
+        margin-right: ($spacing-unit / 2);
+        margin-bottom: ($burger-height / 2);
+        margin-top: ($burger-height / 2);
+        transition: transform 0.3s, opacity 0.3s;
+        user-select: none;
+    }
+
+    .is-open .c-navbar__burger--middle {
+        opacity: 0;
+    }
+
+    .is-open .c-navbar__burger--top {
+        top: ($burger-height * 2);
+    }
+
+    .is-open .c-navbar__burger--top,
+    .is-open .c-navbar__burger--middle {
+        transform: rotate(45deg);
+    }
+
+    .is-open .c-navbar__burger--bottom {
+        top: -($burger-height * 2);
+        transform: rotate(-45deg);
+    }
+
+
+
+
+
+
+
+
+/*------------------------------------*\
+    #SITELOGO
+\*------------------------------------*/
+    .c-navbar__site-logo-wrap {
+        /**
+         * Site-logo is typically an SVG so give the container a width and make 
+         * it's height match it's container
+         */
+        float: left;
+        width: 222px;
+        height: 100%;
+        @include navbar-bp-down {          
+            margin-left: ($spacing-unit / 2);
+        }
+    }
+
+    .c-navbar__site-logo-img {
+        /**
+         * Sets the height of the logo, this will allow it to dynamically 
+         * shrink if / when the navbar shrinks.
+         */
+        height: 60%;
+        vertical-align: middle;
+    }
+
+
+
+
+
+/*------------------------------------*\
+    #HACKS
+\*------------------------------------*/
+    .iOS7 .c-navbar__nav {
+        /** Fix ios scroll bug */
+        -webkit-overflow-scrolling: auto;    
+    }
+
+    /*.customize-support .c-navbar {
+        /** 
+         * Wordpres topbar fix 
+         */
+        /* top: 32px !important;
+    } */
+
+} /* Close @if */

@@ -1,0 +1,148 @@
+@if ($use-expanding-form) {
+/*------------------------------------*\
+    COMPONENTS -> FORMS -> $EXPANDING-FORM
+\*------------------------------------*/
+/**
+ * Expanding form is a single input form such as a search field
+ * that is in it's collapsed state by default.
+ * When the user clicks on the button the search field expands into view.
+ * The form uses absolute positioning so it will simply flyout over the top of
+ * surrounding elements on the page rather than pushing them.
+ *
+ * DEPENDENCIES
+ * - text-input
+ * - input-addon
+ * - [JS] toggle-ui-popup
+ *
+
+
+ * Generic expanding form
+    
+<div class="c-expanding-form js-ui-popup">
+    <button class="c-expanding-form__toggle js-ui-popup__toggle">
+        S
+    </button>
+    <form class="c-expanding-form__body [ c-addon-group c-addon-group--inside ] js-ui-popup__body" action="<?php echo site_url(); ?>" method="get">
+        <input type="search" class="c-expanding-form__text c-text-input c-addon-group--inside__input" name="s" placeholder="S&#xF6;k" required>
+        <button type="submit" class="c-expanding-form__submit c-addon-group--inside__addon">
+            S
+        </button>
+    </form>
+</div>
+
+
+
+ * When placed within navbar component.  Wrap flag object
+ * but make sure you remove the width 100% from the flag
+ * in this instance by using the helper class `width-auto`
+ * Float left or right using the helper classes `float-left` and `float-right`
+ 
+<div class="o-flag u-fill-height u-width-auto">
+    <div class="o-flag__body">
+        <div class="c-expanding-form js-ui-popup">
+            <button class="c-expanding-form__toggle js-ui-popup__toggle">
+                S
+            </button>
+            <form class="c-expanding-form__body [ c-addon-group c-addon-group--inside ] js-ui-popup__body" action="<?php echo site_url(); ?>" method="get">
+                <input type="search" class="c-expanding-form__text c-text-input c-addon-group--inside__input" name="s" placeholder="S&#xF6;k" required>
+                <button type="submit" class="c-expanding-form__submit c-addon-group--inside__addon ">
+                    S
+                </button>
+            </form>
+        </div>                         
+    </div>
+</div>
+
+
+
+ * VARS
+ *
+ * 1. Height of the button and text field.
+ * 2. Spacing around the text field that helps prevent the form from closing
+ *    when the user accidentally clicks slightly outside the text field.
+ * 3. The width of the form when in it's expanded state.
+ * 4. The color of the toggle and submit buttons.
+ * 5. A global config for whether the form expands to the right, if set to false
+ *    the form will expand to the left.
+ */
+
+$height: 30px; /* [1] */
+$spacing-around: $spacing-unit; /* [2] */
+$expanded-size: 200px; /* [3] */
+$button-color: $brand-color; /* [4] */
+$expand-to-the-right: false; /* [5] */
+
+
+.c-expanding-form {
+    position: relative;
+    z-index: 2;
+    height: $height;
+    width: $height;
+}
+
+    .c-expanding-form__toggle,
+    .c-expanding-form__submit,
+    .c-expanding-form__body {
+        position: absolute;
+        @if ($expand-to-the-right) {
+            left: 0;
+        } @else {
+            right: 0;
+        }
+    }
+
+    .c-expanding-form__toggle,
+    .c-expanding-form__submit {
+        top: 50%;
+        width: $height;
+        height: $height;
+        margin-top: -($height/2);
+        background: $button-color;            
+    }
+
+    .c-expanding-form__body {
+        top: 0;
+        width: $expanded-size;
+        height: 100%;
+        transform: scale(0,1);
+        
+        opacity: 0;
+        transition: transform 0.2s, opacity 0.2s;
+        @if ($expand-to-the-right) {
+            transform-origin: 0 0;
+        } @else {
+            transform-origin: 100% 0;
+        }
+
+        &::before {
+            position: absolute;
+            top: -$spacing-around;
+            bottom: -$spacing-around;
+            right: 0;
+            left: -$spacing-around;;
+            content: " ";
+        }
+        
+        .is-open & {
+            transform: scale(1,1);
+            opacity: 1;
+        }
+    }
+
+    .c-expanding-form__text {
+        $padding-left: 10px;
+        $border-width: 1px;
+        $calc-arg: ($height + 5) + $padding-left + ($border-width*2);
+
+        position: absolute;
+        @if ($expand-to-the-right) {
+            left: 0;
+        } @else {
+            right: 0;
+        }
+        width: calc(100% - #{$calc-arg});
+        height: $height;
+        padding: 0 ($height + 5) 0 $padding-left;
+    } 
+
+} /* Close @if */

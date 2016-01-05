@@ -1,0 +1,17 @@
+@if ($use-image-replacement) {
+/*------------------------------------*\
+    COMPONENTS -> GENERIC -> #IMAGE-REPLACEMENT
+\*------------------------------------*/
+
+/**
+ * Used to hide text that you want replaced with an image, can help with semantics
+ */
+.c-image-replacement {
+    border: 0;
+    font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+    background: transparent;
+}
+
+} /* Close @if */

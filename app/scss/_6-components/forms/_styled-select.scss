@@ -1,0 +1,55 @@
+@if ($use-styled-select) {
+/*------------------------------------*\
+    COMPONENTS -> FORMS -> $STYLED-SELECT
+\*------------------------------------*/
+/**
+ * Allow for a select box to appear visually styled by styling an underlying label and 
+ * setting the opacity of the select box to zero.  
+ * 
+ * DEPENDENCIES
+ * - [JS] styled-select
+ *
+
+<div class="c-styled-select js-select">
+    <label class="c-styled-select__label c-styled-select__label--sm">
+        <span class="js-styled-select-text">
+            Lorem ipsum                                                    
+        </span>
+        <svg class="c-styled-select__chevron">
+            <use xlink:href="<?php bloginfo('template_directory'); ?>/build/img/sprite.svg#icon-chevron"></use>
+        </svg>
+    </label>
+    <select class="c-styled-select__select" name="problem">
+        <option value="sverige" selected>Lorem ipsum</option>
+        <option value="ryssland">Lorem ipsum dolor</option>
+        <option value="tyskland">Lorem ipsum doloe sit</option>
+    </select>
+</div>
+
+ */
+
+
+.c-styled-select {
+    position: relative;
+    display: inline-block;
+}
+
+    .c-styled-select__select {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        opacity: 0;
+        cursor: pointer;
+        background: none;
+    }
+
+    .c-styled-select__label {
+        display: block;
+    }
+
+    .c-styled-select__label--md {
+        width: 100px; /* Modify as needed */
+    }
+
+} /* Close @if */

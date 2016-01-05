@@ -1,0 +1,249 @@
+// /*------------------------------------*\
+//    #TOOLS -> MIXINS -> HELPERS
+// \*------------------------------------*/
+
+
+
+
+// /*------------------------------------*\
+//    #FLOATS & TEXT ALIGNMENT
+// \*------------------------------------*/
+@mixin align-float($property, $val) {
+
+	#{$property}: $val !important;
+	&--screen-xs {
+		@media (max-width: $screen-xs) {
+			#{$property}: $val !important;
+		}
+	}
+	&--screen-sm {
+		@media (max-width: $screen-sm) {
+			#{$property}: $val !important;
+		}
+	}
+	&--screen-md {
+		@media (max-width: $screen-md) {
+			#{$property}: $val !important;
+		}
+	}
+
+
+	&--min-screen-xs {
+		@media (min-width: $screen-xs+1) {
+			#{$property}: $val !important;
+		}
+	}
+	&--min-screen-sm {
+		@media (min-width: $screen-sm+1) {
+			#{$property}: $val !important;
+		}
+	}
+	&--min-screen-md {
+		@media (min-width: $screen-md+1) {
+			#{$property}: $val !important;
+		}
+	}
+}
+
+
+
+// /*------------------------------------*\
+//    #PUSH & SOFT CLASSES & REMOVE BORDER
+// \*------------------------------------*/
+@mixin element-boundaries-direction($property, $width) {
+	#{$property}: $width !important;
+	&--top {
+		#{$property}-top: $width !important;
+	}
+	&--right {
+		#{$property}-right: $width !important;
+	}
+	&--bottom {
+		#{$property}-bottom: $width !important;
+	}
+	&--left {
+		#{$property}-left: $width !important;
+	}
+	&--ends {
+		#{$property}-top: $width !important;
+		#{$property}-bottom: $width !important;
+	}
+	&--sides {
+		#{$property}-left: $width !important;
+		#{$property}-right: $width !important;
+	}
+	@media(max-width: $screen-sm) {
+		&--screen-sm {
+			#{$property}: $width !important;
+		}
+		&--top--screen-sm {
+			#{$property}-top: $width !important;
+		}
+		&--right--screen-sm {
+			#{$property}-right: $width !important;
+		}
+		&--bottom--screen-sm {
+			#{$property}-bottom: $width !important;
+		}
+		&--left--screen-sm {
+			#{$property}-left: $width !important;
+		}
+		&--ends--screen-sm {
+			#{$property}-top: $width !important;
+			#{$property}-bottom: $width !important;
+		}
+		&--sides--screen-sm {
+			#{$property}-left: $width !important;
+			#{$property}-right: $width !important;
+		}
+	}
+	@media(min-width: $screen-sm+1) {
+		&--min-screen-sm  {
+			#{$property}: $width !important;
+		}
+		&--top--min-screen-sm {
+			#{$property}-top: $width !important;
+		}
+		&--right--min-screen-sm {
+			#{$property}-right: $width !important;
+		}
+		&--bottom--min-screen-sm {
+			#{$property}-bottom: $width !important;
+		}
+		&--left--min-screen-sm {
+			#{$property}-left: $width !important;
+		}
+		&--ends--min-screen-sm {
+			#{$property}-top: $width !important;
+			#{$property}-bottom: $width !important;
+		}
+		&--sides--min-screen-sm {
+			#{$property}-left: $width !important;
+			#{$property}-right: $width !important;
+		}
+	}
+	@media(max-width: $screen-xs) {
+		&--screen-xs  {
+			#{$property}: $width !important;
+		}
+		&--top--screen-xs {
+			#{$property}-top: $width !important;
+		}
+		&--right--screen-xs {
+			#{$property}-right: $width !important;
+		}
+		&--bottom--screen-xs {
+			#{$property}-bottom: $width !important;
+		}
+		&--left--screen-xs {
+			#{$property}-left: $width !important;
+		}
+		&--ends--screen-xs {
+			#{$property}-top: $width !important;
+			#{$property}-bottom: $width !important;
+		}
+		&--sides--screen-xs {
+			#{$property}-left: $width !important;
+			#{$property}-right: $width !important;
+		}
+	}
+	@media(min-width: $screen-xs+1) {
+		&--min-screen-xs {
+			#{$property}: $width !important;
+		}
+		&--top--min-screen-xs {
+			#{$property}-top: $width !important;
+		}
+		&--right--min-screen-xs {
+			#{$property}-right: $width !important;
+		}
+		&--bottom--min-screen-xs {
+			#{$property}-bottom: $width !important;
+		}
+		&--left--min-screen-xs {
+			#{$property}-left: $width !important;
+		}
+		&--ends--min-screen-xs {
+			#{$property}-top: $width !important;
+			#{$property}-bottom: $width !important;
+		}
+		&--sides--min-screen-xs {
+			#{$property}-left: $width !important;
+			#{$property}-right: $width !important;
+		}
+	}
+}
+@mixin element-boundaries($property, $width) {
+	@include element-boundaries-direction($property, $width);
+	@if ($width != 0) {
+		&-half {
+			$width: round($width / 2);
+			@include element-boundaries-direction($property, $width);
+		}
+	}
+}
+
+
+
+// /*------------------------------------*\
+//    #VISIBILITY
+// \*------------------------------------*/
+@mixin visibility-display($selector, $screen-width) {
+	&--#{$selector} {
+		@media screen and (max-width: $screen-width) {
+			display: none !important;
+		}
+	}
+	&--min-#{$selector} {
+		@media screen and (min-width: $screen-width+1) {
+			display: none !important;
+		}
+	}
+}
+@mixin visibility() {
+	.hidden,
+	%hidden {
+		display: none !important;
+		@include visibility-display(screen-xxs, $screen-xxs);
+		@include visibility-display(screen-xs, $screen-xs);
+		@include visibility-display(screen-sm, $screen-sm);
+		@include visibility-display(screen-md, $screen-md);
+		@include visibility-display(screen-lg, $screen-lg);
+	}
+}
+
+
+
+// /*------------------------------------*\
+//    #COLORS
+// \*------------------------------------*/
+@mixin set-color($prefix, $property) {
+	.#{$prefix}-brand,
+	%#{$prefix}-brand {
+		#{$property}: $brand-color !important;
+	}
+	.#{$prefix}-alpha,
+	%#{$prefix}-alpha {
+		#{$property}: $alpha-color !important;
+	}
+	.#{$prefix}-beta,
+	%#{$prefix}-beta {
+		#{$property}: $beta-color !important;
+	}
+	.#{$prefix}-gamma,
+	%#{$prefix}-gamma {
+		#{$property}: $gamma-color !important;
+	}
+	.#{$prefix}-delta,
+	%#{$prefix}-delta {
+		#{$property}: $delta-color !important;
+	}
+	.#{$prefix}-epsilon,
+	%#{$prefix}-epsilon {
+		#{$property}: $epsilon-color !important;
+	}
+	.#{$prefix}-zeta,
+	%#{$prefix}-zeta {
+		#{$property}: $zeta-color !important;
+	}
+}

@@ -1,0 +1,66 @@
+@if ($use-columns) {
+/*------------------------------------*\
+    OBJECTS -> GENERIC -> ##COLUMNS
+\*------------------------------------*/
+
+@mixin columns($number) {
+    column-count: $number;
+    &\@sm-down {
+        @media (max-width: $screen-sm) {
+            column-count: $number;
+        }
+    }
+    &\@xs-down {
+        @media (max-width: $screen-xs) {
+            column-count: $number;
+        }
+    }
+}
+
+$column-gap: $spacing-unit;
+
+$use__four-cols:    false;
+$use__three-cols:   false;
+$use__two-cols:     false;
+$use__one-col:      false;
+/**
+ * Used to create newspaper like columns where
+ * the text flows from one columns to another.
+ * You can change the number of columns based on screen size
+ * this is demonstrated in second example.
+	
+  <div class="o-cols--two">
+      ...
+  </div>
+
+  <div class="o-four-cols@sm-up o-two-cols@sm-down o-one-col@xs-down">
+  	...
+  </div>§
+
+*
+*/
+@if ($use__four-cols) {
+	.o-four-cols {
+		@include columns(4);
+	}
+}
+
+@if ($use__three-cols) {
+	.o-three-cols {
+		@include columns(3);
+	}
+}
+
+@if ($use__two-cols) {
+	.o-two-cols {
+		@include columns(2);
+	}
+}
+
+@if ($use__one-col) {
+	.o-one-col {
+		@include columns(1);
+	}
+}
+
+} /* Close @if */

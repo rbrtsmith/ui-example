@@ -1,0 +1,22 @@
+@if ($use-quotes) {
+/*------------------------------------*\
+    COMPONENTS -> GENERIC -> ##QUOTES
+\*------------------------------------*/
+
+	/*
+	<blockquote class="c-quotes">
+		<p>Lorem ispsum...
+		</p>
+	</blockquote>
+	*/
+
+	.c-quotes {
+		font-style: italic;
+		p:first-child::before {
+			content: '\201C';
+		}
+		p:last-child::after {
+			content: '\201D';
+		}
+	}
+}

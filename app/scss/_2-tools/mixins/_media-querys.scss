@@ -1,0 +1,139 @@
+/*------------------------------------*\
+    #TOOLS -> MIXINS -> MEDIA QUERYS
+\*------------------------------------*/
+
+ /**
+  * Created by Robert Smith (@robertwilliam_s)
+  /*
+
+ /**
+  * The simple mixins below pull the declared breakpoints from our 
+  * variables file.
+  *
+  * screen-xxs
+  * screen-xs
+  * screen-sm
+  * screen-md
+  * screen-lg
+  * navbar-bp
+  *
+  * `@include (screen-xs-up) { [styles here] }`
+  * `@include (screen-xs-down) { [styles here ] }`
+  *
+  * Target retina and high pixel density screens:
+  * `@include (retina) { [styles] }`
+  */
+
+
+
+/**
+ * screen-xxs
+ */
+ 
+@mixin screen-xxs-up {
+    @media (min-width: $screen-xxs+1) {
+        @content;
+    }
+}
+@mixin screen-xxs-down {
+    @media (max-width: $screen-xxs) {
+        @content;
+    }
+}
+
+
+/**
+ * screen-xs
+ */
+
+@mixin screen-xs-up {
+	@media (min-width: $screen-xs+1) {
+		@content;
+	}
+}
+@mixin screen-xs-down {
+	@media (max-width: $screen-xs) {
+		@content;
+	}
+}
+
+
+/**
+ * screen-sm
+ */
+
+@mixin screen-sm-up {
+	@media (min-width: $screen-sm+1) {
+		@content;
+	}
+}
+@mixin screen-sm-down {
+	@media (max-width: $screen-sm) {
+		@content;
+	}
+}
+
+
+/**
+ * screen-md
+ */
+
+@mixin screen-md-up {
+	@media (min-width: $screen-md+1) {
+		@content;
+	}
+}
+@mixin screen-md-down {
+	@media (max-width: $screen-md) {
+		@content;
+	}
+}
+
+
+/**
+ * screen-lg
+ */
+
+@mixin screen-lg-up {
+	@media (min-width: $screen-lg+1) {
+		@content;
+	}
+}
+@mixin screen-lg-down {
+	@media (max-width: $screen-lg) {
+		@content;
+	}
+}
+
+
+/**
+ * navbar-bp
+ */
+
+@mixin navbar-bp-up {
+    @media (min-width: $navbar-bp+1) {
+        @content;
+    }
+}
+@mixin navbar-bp-down {
+    @media (max-width: $navbar-bp) {
+        @content;
+    }
+}
+
+
+/**
+ * retina
+ */
+
+@mixin retina {
+  @media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}

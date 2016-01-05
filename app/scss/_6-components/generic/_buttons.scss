@@ -1,0 +1,53 @@
+@if ($use-buttons) {
+/*------------------------------------*\
+    COMPONENTS -> GENERIC -> ##BUTTONS
+\*------------------------------------*/
+
+/**
+ * Based object for all buttons, not much
+ * in here as buttons generally vary from
+ * project to project.
+ *
+
+ <a href="#" class="c-btn c-btn--brand c-btn--md">
+	CTA
+ </a>
+
+ *
+ */
+
+.c-btn {
+	display: inline-block;
+	border: 0;
+	text-decoration: none;
+	color: white;
+	text-align: center;
+	transition: background 0.2s;
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		color: white;
+	}
+}
+
+.c-btn--brand {
+	$background: $brand-color;
+	background: $background;
+	&:hover,
+	&:focus {
+		background: lighten($background, 6%);
+	}
+}
+
+	
+.c-btn--md {
+	padding: 0.2rem 3rem;
+}
+
+.c-btn--full {
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+} /* Close @if */

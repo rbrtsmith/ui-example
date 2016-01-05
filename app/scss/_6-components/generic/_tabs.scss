@@ -1,0 +1,59 @@
+@if ($use-tabs) {
+/*------------------------------------*\
+    COMPONENTS -> GENERIC -> ##TABS
+\*------------------------------------*/
+/**
+ * Used for tabbable content.
+ * Use the data-target attibute to target the correct tab.
+ *
+ * DEPENDENCIES
+ * - [JS] components/tabs.js
+ *	
+
+<div class="c-tabs js-tabs">
+    <div class="c-tabs__toggle-group">
+        <div class="c-tabs__toggle-group__item">
+            <button class="c-tabs__toggle-group__btn js-tab-toggle" data-target="#tab-foo">
+                Foo
+            </button>                                
+        </div>
+        <div class="c-tabs__toggle-group__item">
+            <button class="c-tabs__toggle-group__btn js-tab-toggle" data-target="#tab-bar">
+                Bar
+            </button>                                
+        </div>          
+    </div>                    
+    <div class="c-tabs__tab is-open js-tab" id="tab-foo">
+        Tab foo
+    </div>
+    <div class="c-tabs__tab js-tab" id="tab-bar">
+        Tab bar
+    </div>
+</div>
+
+ */
+
+
+.c-tabs__toggle-group {
+		display: table;
+		width: 100%;
+		table-layout: fixed;
+}
+
+.c-tabs__toggle-btn {
+    display: table-cell;
+    text-align: center;
+    @include screen-sm-down {
+        display: block;
+    }
+}
+
+.c-tabs__tab {
+		@include hidden;
+        
+		&.is-open {
+			@include visibile;
+		}
+	}
+
+} /* Close @if */

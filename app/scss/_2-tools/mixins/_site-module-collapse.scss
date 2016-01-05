@@ -1,0 +1,23 @@
+// /*------------------------------------*\
+//    #TOOLS -> MIXINS -> SITE-MODULE-COLLAPSE
+// \*------------------------------------*/
+@mixin site-module-collapsed($size) {
+    display: table;
+    &__img,
+    &__content {
+        display: table-cell;
+    }
+    img,
+    &__img__inner {
+        width: $size;
+        height: $size;
+    }
+    &__content {
+        width: 100%;
+        vertical-align: middle;
+        padding-left: $spacing-unit;
+        &--top {
+            vertical-align: top;
+        }
+    }
+};

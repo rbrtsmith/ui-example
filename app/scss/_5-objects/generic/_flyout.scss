@@ -1,0 +1,222 @@
+@if ($use-flyout) {
+
+/**
+ * API
+ *
+ * Hover exmaple:
+
+<div class="o-flyout o-flyout--hover">
+    Lorem ipsum
+    <div class="o-flyout__body o-flyout__body--left-top o-flyout--hover__body">
+        Dolir sit amit
+    </div>
+</div>
+
+ *
+ *
+ *
+ *
+ *
+ *
+ * Click example - Dependency: js-ui-popup.js
+
+<div class="o-flyout o-flyout--click js-ui-popup">
+    Lorem ipsum
+    <div class="o-flyout__body o-flyout__body--left-top o-flyout--click__body js-ui-popup__body">
+        Dolir sit amit
+    </div>
+</div>
+
+ *
+ *
+ *
+ *
+ *
+ *
+ * //-> .flyout__body--top-left
+ *
+ *       top-left
+ *     []
+ *     -------------
+ *     |           | 
+ *     |___________|
+ *
+ *
+ *
+ *       top-right
+ *                []
+ *     -------------
+ *     |           | 
+ *     |___________|
+ *
+ *
+ *
+ *
+ * //-> .flyout__body--right-top
+ *
+ *       right-top
+ *     
+ *     -------------[]
+ *     |           | 
+ *     |___________|
+ *
+ *
+ *
+ *
+ *     right-bottom
+ *     
+ *     -------------
+ *     |           | 
+ *     |___________|[]
+ *
+ *
+ *
+ *
+ * //-> .flyout__body--bottom-right
+ *
+ *      bottom-right
+ *     
+ *     -------------
+ *     |           | 
+ *     |___________|
+ *	              []
+ *
+ *
+ *
+ *
+ *      bottom-left
+ *     
+ *     -------------
+ *     |           | 
+ *     |___________|
+ *	   []
+ *
+ *
+ *
+ * //-> .flyout__body--left-center
+ *
+ *      left-Bottom
+ *     
+ *     -------------
+ *     |           | 
+ *   []|___________|
+ *	   
+ *
+ *
+ *
+ *      left-top
+ *     
+ *   []-------------
+ *     |           | 
+ *     |___________|
+ *
+ *
+ *
+ *
+ *
+ */
+
+$hover: true;
+$click: true;
+
+$top-left: false;
+$top-right: false;
+$right-top: true;
+$right-bottom: false;
+$bottom-right: true;
+$bottom-left: true;
+$left-bottom: false;
+$left-top: false;
+
+
+@mixin reveal() {
+	height: auto;
+	width: auto;
+	clip: auto;
+	transform: scale(1);
+}
+
+
+.o-flyout {
+	position: relative;
+	overflow: hidden;
+}
+
+	.o-flyout__body {
+		position: absolute;
+		height: 1px;
+		width: 1px;
+		clip: rect(1px, 1px, 1px, 1px);
+	}
+
+	@if($top-left) {
+		.o-flyout__body--top-left {
+			bottom: 100%;
+			left: 0;
+		}				
+	}
+	@if($top-right) {
+		.o-flyout__body--top-right {
+			bottom: 100%;
+			right: 0;
+		}				
+	}
+
+	@if($right-top) {
+		.o-flyout__body--right-top {
+			left: 100%;
+			top: 0;
+		}				
+	}
+	@if($right-bottom) {
+		.o-flyout__body--right-bottom {
+			bottom: 0;
+			left: 100%;
+		}				
+	}
+
+	@if($bottom-right) {
+		.o-flyout__body--bottom-right {
+			top: 100%;
+			right: 0;
+		}				
+	}
+	@if($bottom-left) {
+		.o-flyout__body--bottom-left {
+			top: 100%;
+			left: 0;
+		}				
+	}
+	
+	@if($left-bottom) {
+		.o-flyout__body--left-bottom {
+			right: 100%;
+			bottom: 0;
+		}				
+	}
+	@if($left-top) {
+		.o-flyout__body--left-top {
+			right: 100%;
+			top: 0;
+		}				
+	}
+
+@if($hover) {
+	.o-flyout--hover:hover {
+		overflow: visible;
+	}
+	.o-flyout--hover:hover > .o-flyout--hover__body {
+		@include reveal;
+	}			
+}
+
+@if($click) {
+	.o-flyout--click.is-open {
+		overflow: visible;
+	}
+	.o-flyout--click.is-open > .o-flyout--click__body {
+		@include reveal;
+	}			
+}
+
+} /* Close @if */

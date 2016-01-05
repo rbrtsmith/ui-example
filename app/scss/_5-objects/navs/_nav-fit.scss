@@ -1,0 +1,29 @@
+@if ($use-nav-fit) {
+/*------------------------------------*\
+    OBJECTS -> NAVS -> ##NAV-FIT
+\*------------------------------------*/
+/**
+ * forces the nav to fit the width of the container,
+ * dividing each item equally.
+ *
+
+<ul class="o-inline-list o-nav--fit">
+	<li>...</li>
+	<li>..</li>
+</ul>
+
+ */
+
+
+.o-nav-fit {
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+	text-align: center;
+}
+
+	.o-nav-fit > li {
+		display: table-cell;
+	}
+
+} /* Close @if */

@@ -1,0 +1,54 @@
+@if ($use-inline-list) {
+/*------------------------------------*\
+    OBJECTS -> LISTS -> ##INLINE-LIST
+\*------------------------------------*/
+/**
+ * Throws a list inline, extends bare-list.
+
+<ul class="o-inline-list">
+	<li>...</li>
+	<li>...</li>
+</ul>
+
+
+ * Spaces out the list items
+
+<ul class="o-inline-list o-inline-list--spaced">
+	<li>...</li>
+	<li>...</li>
+</ul>
+
+
+ */
+$list-spacing: $spacing-unit;
+
+$spaced: false;
+
+.o-inline-list {
+	@include bare-list;
+	
+	/* Remove spaces between inline block items */
+	font-size: 0;
+}
+
+	.o-inline-list > li {
+		@include font-size($base-font-size);
+
+		display: inline-block;
+		vertical-align: middle;	
+	}
+
+	@if ($spaced) {
+		.o-inline-list--spaced {
+			margin-left: -$list-spacing;
+			margin-bottom: -$list-spacing;
+		}
+
+			.o-inline-list--spaced > li {
+				padding-left: $list-spacing;
+				padding-bottom: $list-spacing;
+			}
+	} /* Close @if */
+
+
+} /* Close @if */

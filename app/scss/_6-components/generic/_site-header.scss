@@ -1,0 +1,29 @@
+/*------------------------------------*\
+    COMPONENTS -> GENERIC -> #SITE-HEADER
+\*------------------------------------*/
+
+/**
+ * The main heading in the project.  The navbar component will typically
+ * reside within the site-header.
+ */
+
+.c-site-header {
+	transition: opacity $fade-in-site-transition;
+	.is-faded-out & {
+		opacity: 0;
+	}
+}
+
+	.c-site-header__top {
+		/**
+		 * 1. Give the element positooning so z-index works.
+		 * 2. Set a higher z-index than the navbar overlay so it doesn't
+		 *    get obscured when the navbar is opened.
+		 */
+		position: relative; /* [1] */
+		z-index: 4; /* [2] */
+		background: white;
+	}
+
+
+

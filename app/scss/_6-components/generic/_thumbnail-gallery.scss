@@ -1,0 +1,62 @@
+@if ($use-thumbnail-gallery) {
+/*------------------------------------*\
+    COMPONENTS -> GENERIC -> #THUMBNAIL GALLERY
+\*------------------------------------*/
+/**
+ * A gallery with a large image and thumbnails below. Using the JavaScript
+ * The thumbnails can be selected to switch the source of the larger image.
+ *
+ * DEPENDENCIES
+ * - [JS] components/thumbnail-gallery.js
+ *
+
+<figure class="c-thumbnail-gallery u-push--bottom js-swap-img-gallery">
+    <div class="c-thumbnail-gallery__lg-img">
+        <img class="js-swap-img-gallery__lg" src="<?php bloginfo('template_directory'); ?>/build/img/700x384.jpg" alt="">
+    </div>
+    <ul class="c-thumbnail-gallery__list o-inline-list">
+        <?php for ($i=0; $i<5; $i++) : ?>
+            <li <?php if (!$i) { echo 'class="current-image"';} ?>>
+                <img class="js-single-sm-img" 
+                    src="<?php bloginfo('template_directory'); ?>/build/img/135x74.jpg"
+                    data-large-src="<?php bloginfo('template_directory'); ?>/build/img/700x384.jpg"
+                    alt="">
+            </li>
+        <?php endfor; ?>
+    </ul>
+</figure>
+
+
+ */
+
+$gutter: ($spacing-unit / 3);
+
+.c-thumbnail-gallery {
+}
+
+    .c-thumbnail-gallery__lg-img {
+    	position: relative;
+    	overflow: hidden;
+    }
+
+    .c-thumbnail-gallery__list {
+        margin-left: -$gutter;
+        margin-bottom: -$gutter;
+    }
+
+        .c-thumbnail-gallery__list > li {
+            padding-left: $gutter;
+            padding-bottom: $gutter;
+            padding: $gutter;
+            cursor: pointer;
+            opacity: 0.5;
+            font-size: 0;
+        }
+
+        .c-thumbnail-gallery__list .current-image {
+            position: relative;
+            opacity: 1;
+        }
+
+
+} /* Close @if */

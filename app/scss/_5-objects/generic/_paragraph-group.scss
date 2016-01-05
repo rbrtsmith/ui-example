@@ -1,0 +1,22 @@
+@if ($use-paragraph-group) {
+/*------------------------------------*\
+    OBJECTS -> GENERIC -> #PARAGRAPH-GROUP
+\*------------------------------------*/
+
+/**
+ * removes margin bottom for last paragraph in the group.
+ *
+
+	<div class="o-paragraph-group">
+		<p>...</p>
+		<p>...</p>
+	</div>
+
+ *
+ */
+
+.o-paragraph-group p:last-child {
+	margin-bottom: 0;
+}
+
+} /* Close @if */

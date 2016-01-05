@@ -1,0 +1,13 @@
+@if $use-touch-friendly {
+/*------------------------------------*\
+    COMPONENTS -> GENERIC -> #TOUCH-FRIENDLY
+\*------------------------------------*/
+
+
+.touch .c-touch-friendly a {
+    display: inline-block;
+    line-height: 2.2;
+}
+
+} /* Close @if */
+   

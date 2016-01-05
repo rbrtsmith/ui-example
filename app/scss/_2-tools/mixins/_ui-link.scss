@@ -1,0 +1,9 @@
+@mixin ui-link() {
+    color: inherit;
+    text-decoration: none;
+    &:hover,
+    &:focus, {
+        text-decoration: none;
+        color: inherit;
+    }
+}

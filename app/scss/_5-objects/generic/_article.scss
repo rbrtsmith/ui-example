@@ -1,0 +1,80 @@
+@if ($use-article) {
+/*------------------------------------*\
+    OBJECTS -> GENERIC -> ##ARTICLE
+\*------------------------------------*/
+
+/**
+ * Used on large(ish) articles where you get an image either to the left
+ * or the right that is 50% wide then you have text that wraps around the image
+ * at medium screen sizes.
+
+<article class="o-article clearfix">
+    <figure class="o-article__media o-article__media--left">
+        <div class="c-img-control-wrap js-img-control-wrap">
+            <div class="c-img-control-wrap__inner js-img-control-wrap__inner">
+                <?php // ensure data-attrs are populated with actual image dimensions. ?>
+                <img src="<?php bloginfo('template_directory'); ?>/build/img/blank.gif"
+                    class="js-img-control"
+                    data-lg-src="http://lorempixel.com/600/400/sports"
+                    data-lg-width="570"
+                    data-lg-height="400"
+                    data-fluid="true"
+                    alt="">
+            </div>
+        </div>
+    </figure>
+    <div class="o-article__body">
+        <header>
+            <h1>
+                Om oss
+            </h1>
+        </header>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus congue neque sed fringilla condimentum. Ut adipiscing lectus pretium mattis ornare. Sed eu sagittis sem, ut aliquet tellus. Cras vestibulum libero enim, sed tempor quam aliquet a. Praesent dictum congue rhoncus. </p>
+        <p>Ut bibendum viverra turpis cursus varius. Ut sit amet tempor lectus. Aliquam quis eleifend justo, sed tincidunt purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec eget blandit ipsum. In risus ante, venenatis eget auctor eget, ultrices ut enim. Pellentesque ac ante a dolor laoreet aliquet.</p>
+    </div>
+</article>
+
+ */
+$bp: 600px;
+$media-width: 50%;
+
+
+.o-article {
+    margin-bottom: -$spacing-unit;
+    margin-left: -$half-spacing-unit;
+    margin-right: -$half-spacing-unit;    
+}
+    .o-article__body,
+    .o-article__media {
+        padding-left: $half-spacing-unit;
+        padding-right: $half-spacing-unit; 
+    }
+
+    .o-article__body {
+        @include screen-md-up {
+            overflow: hidden;
+        }
+    }
+
+    .o-article__media {
+        @media (min-width: $bp) {
+            width: $media-width;
+        }
+    }
+
+    .o-article__media--right {
+        @media (min-width: $bp) {
+            float: right;
+            text-align: right;
+        }
+    }
+
+    .o-article__media--left {
+        @media (min-width: $bp) {
+            float: left;
+            text-align: left;
+        }
+    }
+
+
+} /* Close @if */

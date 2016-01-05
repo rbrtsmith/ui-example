@@ -1,0 +1,49 @@
+/*------------------------------------*\
+   #TOOLS -> MIXINS -> FONT-SIZE
+\*------------------------------------*/
+
+
+
+
+/**
+ * Responsive font-size mixin
+ * Written by Robert Smith
+ *
+ */
+
+
+@mixin font-size($size, $important: null) {
+    $font-size: nth($size,1);
+    $coefficient: nth($size,2);
+    $breakpoints: $screen-sm, $screen-xs;
+    /** set base font-size */
+    @if $important {
+        font-size: calculateRem($font-size) + !important;
+    } @else {
+        font-size: calculateRem($font-size);
+    }
+    /** loop through the screen sizes list. */
+    @each $breakpoint in $breakpoints {
+        
+        /** get current index of the list */
+        $index: index($breakpoints, $breakpoint);
+
+        /**
+         * calculate font size increase value by multiplying the
+         * coefficient by the current index calue
+         */
+        $increase: $coefficient * $index;
+        
+        /** get the current index */
+        @media (max-width: $breakpoint) {
+            @if $important {
+                font-size: calculateRem($font-size - $increase) + !important;
+            } @else {
+                font-size: calculateRem($font-size - $increase);
+            }
+            
+        }
+    }
+}
+
+

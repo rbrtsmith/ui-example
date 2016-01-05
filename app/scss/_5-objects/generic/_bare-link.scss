@@ -1,0 +1,24 @@
+@if ($use-bare-link) {
+/*------------------------------------*\
+    OBJECTS -> GENERIC -> ##BARE-LINK
+\*------------------------------------*/
+/**
+ * Used to remove default styling of link, inherits
+ * it's parent's text color and on hover adds an underline.
+ 
+<a href="#" class="o-bare-link">...</a>
+
+ */
+
+.o-bare-link,
+.o-bare-links a {
+	text-decoration: none;
+	color: inherit;
+	&:hover,
+    &:focus {
+		color: inherit;
+		text-decoration: underline;
+	}
+}
+
+} /* Close @if */

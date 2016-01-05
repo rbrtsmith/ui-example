@@ -1,0 +1,34 @@
+/*------------------------------------*\
+    $MAKE-OFFSETS
+\*------------------------------------*/
+/**
+ * 1. Takes 3 arguments: 
+ *    - The property (Width OR push OR pull),
+ *    - The fractions list that corresponds to the property,
+ *    - An optional namespace that will form a segment of the eventual class name.
+ * 2. Call the `set-fractions mixin` passing in:
+ *    - The property,
+ *    - The fractions list,
+ *    - null (No breakpoint in this call)
+ *    - The namespace.
+ * 3. Check if any breakpoints are defined.
+ * 4. Loop through the breakpoints.
+ * 5. Generate a mobile first media query taking with width value from the
+ *    current breakpoint's list (2nd value) and add `1` to the value.
+ * 2. Call the `set-fractions mixin` passing in:
+ *    - The property,
+ *    - The fractions list,
+ *    - the current breakpoint
+ *    - The namespace.
+ */
+@mixin make-offsets($property, $fractions) { /* [1] */
+    @include make-fractions($property, $fractions, null); /* [2] */
+    @if $grid-breakpoints { /* [3] */
+        @each $breakpoint in $grid-breakpoints { /* [4] */
+            @media (min-width: (nth($breakpoint, 2) +1)) { /* [5] */
+                /* [6] */
+                @include make-fractions($property, $fractions, $breakpoint);
+            }
+        }
+    }
+}

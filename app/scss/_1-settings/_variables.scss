@@ -1,0 +1,190 @@
+/*------------------------------------*\
+    SETTINGS -> VARIABLES
+\*------------------------------------*/
+
+/*
+
+
+FIX BUG IN CALANDER.JS PLUGIN
+
+remove block-form and text input into objects.
+
+Make modal-dialog.js accept calls to open modals outside of the function.
+
+Rename classnames in styled select to styled select.
+
+fix borders on pagination so it looks good when tiling onto two rows.
+
+fix section collapse right padding in heading - goes underneath the chevron.
+
+*/
+
+
+/*------------------------------------*\
+    $COLORS
+\*------------------------------------*/
+/**
+ * Theme specific coloring, in general order of precedence. 
+ */
+$brand-color:   #f43338;
+$alpha-color:   #bbb;
+$beta-color:    #000;
+$gamma-color:   #00f;
+$delta-color:   #fff;
+$epsilon-color: #fff;
+$zeta-color:    #fff;
+/**
+ * Set base colors for common objects.
+ */
+$site-background-color: #FFF;
+$base-text-color: #111;
+$base-link-color: $brand-color;
+$base-border-color: #ddd;
+
+
+
+
+
+
+/*------------------------------------*\
+    $FONTS
+\*------------------------------------*/
+/**
+ * 1. Font-size % value on the root HTML element. At the ´screen-sm´
+ *    and `screen-xs` breakpoints it reduces by the coefficient.
+ *    Text and the `$spacing-unit` are all influenced by the base
+ *    font size.
+ * 2. At descending breakpoints the $root-sizing unit decreases,
+ *    This coefficient gives control over the rate of this decrease.
+ * 3. Set the font-size, font-size-coefficient, and line-height normalizer.
+ * 4. This value should be equal to the font-size captured from the
+ *    PSD / Design tool.  It will be converted by an internal function into
+ *    a REM equivalent.
+ * 5. This value is a coefficient similar to `$root-sizing-coefficient`
+ *    As the root font-size decreases at `$screen-sm` and `screen-xs` breakpoints
+ *    these declared fonts will also decrease.  So for text to maintain it's
+ *    size (roughly) it will require a negative number, to increase the rate
+ *    of the decrease (For larger fonts) put in a positive value.  It generally
+ *    aids readability on smaller devices if the contrast between large and
+ *    small fonts is less than that of larger devices.
+ * 6. This value is to set whether or not the font-size uses the line-height
+ *	  mixin to reduce the line-height on larger fonts.  This is optional because
+ *    on font-sizes close to the `$initial-line-height` value may end up with a 
+ *    line height that is a little less than desirable. I would recommend you
+ *    test this for each font size and toggle accordingly.
+ * 7. Base-font-size. The default font size for text in the project. 
+ * 8. Global headline font-sizes, takes the font-size variables from [3].
+ * 9. Brand-font. The primary font-family for the project.  You can declare
+ *    additional font-families via $alpha-font, $beta-font...
+ */
+$root-sizing-unit:  100%; /* [1] */
+$root-sizing-coefficient: 18; /* [2] */
+
+/* [3]		[4]	    [5]     [6] */
+$txt-xxl:   50px, 	1,		true;
+$txt-xl:    40px, 	0,		true;
+$txt-lg:    30px, 	-1,		true;
+$txt-md:    20px, 	-2.5,	false;
+$txt-sm:    16px, 	-3.6,	false;
+$txt-xs:    14px, 	-3.6,	false;
+$txt-xxs:   12px, 	-3.6,	false;
+
+$base-font-size: $txt-sm; /* [7] */
+
+$h1-font-size: $txt-xl; /* [8] */
+$h2-font-size: $txt-lg;
+$h3-font-size: $txt-md;
+$h4-font-size: $txt-sm;
+
+$base-font-family: Source Sans Pro, arial, sans-serif; /* [9] */
+
+
+
+
+
+
+/*------------------------------------*\
+    $SPACING & LINE-HEIGHT
+\*------------------------------------*/
+/**
+ * 1. `$initial-line-height` helps set the vertical rhythm of the site.
+ *    `$spacing-unit` typically uses the same value.  These values
+ *    will get converted to a unitless number as per the best
+ *    practices regarding line-height.  It should be measured in the PSD
+ *    or design tool when selecting text that matches the `$base-font-size`
+ * 2. The maximum width of the site-wrapper, the site wrapper wraps
+ *    general content.  The pixel unit will get converted into REMs
+ *    at point [6]
+ * 3. `$base-line-height`is a unitless number that is calculated by:
+ *    `$initial-line-height` / `$base-font-size`. This will be the value
+ *    of our line-height property on the `<body>` element.
+ * 4. spacing-unit is a conversion of the `$base-line-height` into REMs.
+ * 5. Half of the `spacing-unit`. used for small variants of abstractions like
+ *    inline-list, ui-list push, soft.
+ * 6. site-wrap-width is a conversion of the `$base-site-wrap-width` into REMs
+ *    by diving `$base-site-wrap-width` by `$base-font-size`.
+ */
+$initial-line-height:   24px; /* [1] AKA MAGIC NUMBER */
+$base-site-wrap-width:  1170px; /* [2] */
+
+/** 
+ * NOTICE........... DO NOT MODIFY THIS GROUP!
+ */
+$base-line-height: ($initial-line-height / nth($base-font-size, 1)); /* [3] */
+$spacing-unit: ($base-line-height * 1rem); /* [4] */
+$half-spacing-unit: ($spacing-unit / 2); /* [5] */
+$site-wrap-width: (($base-site-wrap-width / nth($base-font-size, 1)) * 1rem); /* [6] */
+$grid-gutter-width: $spacing-unit;
+
+
+
+
+
+/*------------------------------------*\
+    $MEDIA QUERY BREAKPOINTS
+\*------------------------------------*/
+/**
+ * It's considered bad practice to define device specific breakpoints,
+ * here are some defined broad breakpoints, that are used within the
+ * media-querys mixin.
+ *
+ * 1. Denotes the breakpoint of the main navigation.
+ */
+$screen-lg:  1200px;
+$screen-md:  992px;
+$screen-sm:  768px;
+$screen-xs:  480px;
+$screen-xxs: 400px;
+$navbar-bp:  800px; /* [1] */
+
+/**
+ * Define breakpoints for the grid.  Comment out or remove unused
+ * breakpoints from the list below to reduce bloat in your compiled
+ * CSS.
+ * 
+ * 1. Classname, can use any you wish, just ensure your html grid classnames
+ *    match up. i.e. if you use `large` your html shoiuld look something like
+ *    `<div class="1/2@large>` 
+ * 2. The breakpoint value assigned to the classname.
+ */
+$grid-breakpoints: (
+    /* [1]      [2] */
+    ( xxs-up,   $screen-xxs ),
+    ( xs-up,    $screen-xs ),
+    ( sm-up,    $screen-sm ),
+    ( md-up,    $screen-md ),
+    ( lg-up,    $screen-lg )
+);
+
+
+
+
+/*------------------------------------*\
+    $MISC
+\*------------------------------------*/
+/**
+ * Any miscellaneous global variables.
+ */
+$brand-radius: 4px;
+$fade-in-site-transition: .5s;
+$brand-transition: .2s;

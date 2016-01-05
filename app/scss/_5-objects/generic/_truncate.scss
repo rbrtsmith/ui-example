@@ -1,0 +1,25 @@
+@if ($use-truncate) {
+/*------------------------------------*\
+    OBJECTS -> GENERIC -> #TRUNCATe
+\*------------------------------------*/
+/**
+ *
+ *
+ *	Truncates a single line of text so text that would otherwise overflow is replaced 
+ *	with elipsis at the point of overflow
+
+ *	Example: 
+  <div class="o-tuncate">
+	...
+  </div>
+ */
+
+.o-truncate {
+	max-width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+} /* Close @if */
+

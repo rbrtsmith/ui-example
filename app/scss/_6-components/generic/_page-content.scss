@@ -1,0 +1,44 @@
+/*------------------------------------*\
+    $PAGE-CONTENT
+\*------------------------------------*/
+/**
+ * Styling for page-content, showing an ovrlay when the `ste-nav`
+ * is open.
+ * Page-content element wraps all the content below the navbar.
+ */
+
+.c-page-content {
+    /** give page some height in case the content is very small.*/
+    min-height: 600px;
+    /* overlay for when site nav is open */
+    &::before {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 100%;
+        z-index: 3;
+        background: rgba(black,0.7);
+        opacity: 0;
+        transition: opacity $fade-in-site-transition linear, bottom 0s $fade-in-site-transition, background 0s $fade-in-site-transition;
+        content: " ";
+    }
+}
+
+.c-page-content.site-nav-is-open::before,
+.is-faded-out .c-page-content::before {
+    bottom: 0;
+    opacity: 1;
+    transition: opacity $fade-in-site-transition, bottom 0s 0s linear;
+}
+
+.is-faded-out .c-page-content::before {
+    background: white;
+}
+
+
+@if $use-modal {
+    .modal-open .c-page-content {
+        filter: blur(1.5px);
+    }
+}

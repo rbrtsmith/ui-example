@@ -1,0 +1,10 @@
+// /*------------------------------------*\
+//    #TOOLS -> MIXINS -> COLUMNS
+// \*------------------------------------*/
+@mixin clearfix() {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}

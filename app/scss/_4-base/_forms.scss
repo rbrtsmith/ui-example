@@ -1,0 +1,41 @@
+$use-fading-placeholders: false !default;
+$placeholder-color: #999 !default;
+$placeholder-transition: 0.2s !default;
+
+@if ($use-fading-placeholders) {
+    ::-webkit-input-placeholder {
+        color: $placeholder-color;
+        -webkit-transition: color $placeholder-transition linear;
+    }
+    input:focus::-webkit-input-placeholder {
+        color: transparent;
+    }
+    textarea:focus::-webkit-input-placeholder {
+        color: transparent;
+    }
+
+    ::-moz-placeholder { 
+        color: $placeholder-color;
+        opacity: 1; /** need this hack for color to work on FF */
+        -moz-transition: color $placeholder-transition linear;
+    }
+    input:focus::-moz-placeholder { 
+        color: transparent;
+        opacity: 1; /** need this hack for color to work on FF */
+    }
+    textarea:focus::-moz-placeholder { 
+        color: transparent;
+    }
+
+    :-ms-input-placeholder {
+        color: $placeholder-color;
+        transition: color $placeholder-transition linear;  
+    }
+    input:focus::-placeholder { 
+        color: transparent;
+    }
+    textarea:focus::-placeholder { 
+        color: transparent;
+    }
+    
+} /** Close @if */

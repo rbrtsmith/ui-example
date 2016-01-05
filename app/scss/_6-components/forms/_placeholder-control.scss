@@ -1,0 +1,67 @@
+@if ($use-placeholder-control) {
+
+/*------------------------------------*\
+    COMPONENTS -> FORMS -> ##PLACEHOLDER-CONTROL
+\*------------------------------------*/
+
+
+/**
+ * Gives an informative placeholder even while the user is focused and typing within the input field.
+ *
+ * DEPENDENCIES:
+ * - block-form
+ * - text-input
+ * - [JS] placeholder-control
+
+<form action="contact-thanks" method="post">
+    <ul class="o-bare-list o-bare-list--spaced">
+        <li class="c-placeholder-control js-placeholder-control">
+            <input type="text" class="c-text-input c-placeholder-control__input" name="name" id="name" placeholder="Namn">
+            <label class="c-placeholder-control__label" for="name">Namn</label>
+        </li>
+        <li class="c-placeholder-control js-placeholder-control">
+            <input type="email" class="c-text-input c-placeholder-control__input" name="email" id="email" placeholder="E-post">
+            <label class="c-placeholder-control__label" for="email">E.post</label>
+        </li>
+    </ul>
+</form>
+
+ */
+.c-placeholder-control {
+    backface-visibility: hidden;
+    position: relative;
+
+    ::-webkit-input-placeholder {
+        -webkit-transition: color 0.0s linear;
+    }
+
+    ::-moz-input-placeholder {
+        -moz-transition: color 0.0s linear;
+    }
+
+    ::-ms-input-placeholder {
+        -ms-transition: color 0.0s linear;
+    }
+
+}
+    .c-placeholder-control__label {
+        position: absolute;
+        top: 2px;
+        left: ($spacing-unit / 2);
+        opacity: 0;
+        font-style: italic;
+        transition: transform 0.1s, opacity 0.12s;
+        cursor: text;
+        color: #bbb;
+        transform: translateY(5px);
+    }
+    .c-placeholder-control__input:focus,
+    .c-placeholder-control__textarea:focus {
+        padding-top: $spacing-unit;
+        &+ .placeholder-control__label {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+} /* Close @if */

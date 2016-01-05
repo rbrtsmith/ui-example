@@ -1,0 +1,22 @@
+/**
+ * Allows javaScript function: WW.checkCurrentMediaQuery to detect 
+ * which MQ we are in.
+ */
+.c-show-bp {
+
+    @include screen-lg-up {
+        font-size: 1px;
+    }
+    @include screen-lg-down {
+        font-size: 2px;
+    }
+    @include screen-md-down {
+        font-size: 3px;
+    }
+    @include screen-sm-down {
+        font-size: 4px;
+    }
+    @include screen-xs-down {
+        font-size: 5px;
+    }
+}

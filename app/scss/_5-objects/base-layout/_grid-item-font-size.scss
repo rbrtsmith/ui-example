@@ -1,0 +1,18 @@
+/*------------------------------------*\
+    $GRID-ITEM-FONT-SIZE
+\*------------------------------------*/
+/**
+ * By default the grid system uses a font-size stored
+ * in a variable, which cannot be assigned to a mixin.
+ * This enables us to ovveride that default vaule with
+ * The result of calling the `font-size` mixin
+ */
+
+$grid-item-font-size: $base-font-size !default;
+
+@if $use-grid {
+	.o-grid__item {
+		@include font-size($grid-item-font-size);	
+	
+	}
+}

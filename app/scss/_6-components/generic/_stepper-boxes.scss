@@ -1,0 +1,81 @@
+@if $use-stepper-box {
+/*------------------------------------*\
+    COMPONENTS -> GENERIC -> #STEPPER-BOX
+\*------------------------------------*/
+/**
+ * Stepper boxes are a set of user inputs that allow the user to increment
+ * or decrement a value that lives within a text-field.
+ *
+ * DEPENDENCIES
+ * - [JS] components/stepper-control.js
+ *
+
+<ul class="o-inline-list js-stepper-qty-wrap">
+    <li>
+        <button class="c-stepper-box c-stepper-box--plus js-stepper-qty-increase"></button> 
+    </li>
+    <li>
+        <div class="c-stepper-box">
+            <input type="number" class="c-stepper-box__text-input js-stepper-qty-total" value="1">
+        </div>
+    </li>
+    <li>
+        <button class="c-stepper-box c-stepper-box--minus js-stepper-qty-decrease"></button> 
+    </li>
+</ul>
+
+*/
+
+$size: 34px;
+$border-width: 1px;
+$psuedo-size: 10px;
+
+.c-stepper-box {
+    position: relative;
+    width: $size;
+    height: $size;
+    vertical-align: top;
+    border: $border-width solid $brand-color;
+    text-align: center;
+    user-select: none;
+    background: $brand-color;
+    color: white;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background: white;
+        transform: translateX(-50%) translateY(-50%);
+        content: " ";
+    }
+}
+
+.c-stepper-box--minus::before,
+.c-stepper-box--plus::before {
+    width: $psuedo-size;
+    height: 2px;
+}
+
+.c-stepper-box--plus::after {
+    width: 2px;
+    height: $psuedo-size;
+}
+
+    .c-stepper-box__text-input {
+        @include font-size($base-font-size);
+
+        max-width: 100%;
+        height: 100%;
+        text-align: center;
+        border: 0;
+    }
+
+    .c-stepper-box__text-input::-webkit-inner-spin-button,
+    .c-stepper-box__text-input::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+    }
+
+} /* Close @if */

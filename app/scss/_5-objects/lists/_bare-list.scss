@@ -1,0 +1,39 @@
+@if ($use-bare-list) {
+/*------------------------------------*\
+    OBJECTS -> LISTS -> ##BARE-LIST
+\*------------------------------------*/
+/**
+ *
+ * Removes all margins, padding and list styling from a list.
+ *
+<ul class="o-bare-list">
+	<li>...</li>
+	<li>..</li>
+</ul>
+
+
+ * Adds spacing between list elements.
+<ul class="o-bare-list o-bare-list--spaced">
+	<li>...</li>
+	<li>..</li>
+</ul>
+
+ */
+
+$bare-list-spacing: $spacing-unit !default;
+
+$bare-list-spaced: false !default;
+
+.o-bare-list {
+	@include bare-list;
+}
+@if ($bare-list-spaced) {
+	.o-bare-list > li:last-child {
+		margin-bottom: 0;
+	}
+	.o-bare-list--spaced > li {
+		margin-bottom: $bare-list-spacing;
+	}
+}
+
+} /* Close @if */

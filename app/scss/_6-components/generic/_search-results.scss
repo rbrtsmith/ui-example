@@ -1,0 +1,16 @@
+@if ($use-search-results) {
+/*------------------------------------*\
+    COMPONENTS -> GENERIC -> #SEARCH-RESULTS
+\*------------------------------------*/
+/**
+ * Bare bones styling for search results page.
+ */
+
+.c-search-result {
+    display: block;
+    &:hover {
+        background: #efefef;
+    }
+}
+
+} /* Close @if */

@@ -1,0 +1,43 @@
+@if $use-banner-slider {
+/*------------------------------------*\
+    COMPONENTS -> GENERIC -> #BANNER-SLIDER
+\*------------------------------------*/
+
+/**
+ * Banner slider extends upon the `c-slider` module, banner-slider
+ * being a large, typically full-page banner that also may contain 
+ * text content.
+ */
+    
+$minimum-slider-height: 250px;
+$fixed-height-breakpoint: 875px;
+$padding-bottom-percentage: 29%;
+$background-color: #ddd;
+
+.c-banner-slider {
+    background: $background-color;
+}
+    .c-banner-slider__inner {
+        position: relative;
+        @media (max-width: $fixed-height-breakpoint) {
+            height: $minimum-slider-height;
+        }
+        @media (min-width: $fixed-height-breakpoint+1) {
+            padding-bottom: $padding-bottom-percentage;                    
+        }
+    }
+    .c-banner-slider__img,
+    .c-banner-slider__overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+    .c-banner-slider__img {
+        background-size: cover;
+        background-position: center center;
+    }
+
+
+} /* Close @if */

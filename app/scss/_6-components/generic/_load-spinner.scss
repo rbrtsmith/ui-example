@@ -1,0 +1,61 @@
+@if($use-load-spinner) {
+
+/*------------------------------------*\
+    #COMPONENTS -> GENERIC -> $LOAD-SPINNER
+\*------------------------------------*/
+/**
+ * A loading animation that can be triggered during loading events
+ * Such as Ajax by adding & removing the load-spinner class.
+ */
+
+.c-load-spinner {
+	$animation-length: 1.2s;
+	$size: 50px;
+	$color: $brand-color;
+
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: 10;
+	display: none;
+	width: $size;
+	height: $size;
+	margin-top: -($size / 2);
+	margin-left: -($size / 2);
+	.is-loading & {
+		display: block;
+		animation: rotate $animation-length infinite linear;
+	}
+	&::before,
+	&::after {
+		width: 60%;
+		height: 60%;
+		display: inline-block;
+		position: absolute;
+		top: 0;
+		border: 4px solid $color;
+		border-radius: 50%;
+		animation: bounce $animation-length infinite ease-in-out;
+		content: " ";
+	}
+	&::after {
+		top: auto;
+		bottom: 0;
+		animation-delay: -($animation-length / 2);
+	}
+	@keyframes rotate { 
+		100% { 
+			transform: rotate(360deg); transform: rotate(360deg) 
+		}
+	}
+
+	@keyframes bounce {
+		0%, 100% { 
+			transform: scale(0.0);
+		} 50% { 
+			transform: scale(1.0);
+		}
+	}
+}
+
+} /* Close @if */

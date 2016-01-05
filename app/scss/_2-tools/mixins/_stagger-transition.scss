@@ -1,0 +1,25 @@
+/*------------------------------------*\
+   #TOOLS -> MIXINS -> STAGGER-TRANSITION
+\*------------------------------------*/
+/**
+ * This mixin allows for staggering of transition using :nth-child
+ * It takes 4 arguments:
+ * - $number-of-items - required [1]
+ * - $transition time - optional [2]
+ * - $offset-delay - optional [3]
+ * - $initial-delay - optional [4]
+ *
+ * 1. The number of items in the sequence.
+ * 2. The transition time of each item.
+ * 3. The time between the start of each item's animation.
+ * 4. The initial delay for the whole sequence.
+ *
+ */
+
+@mixin stagger-transition($number-of-items, $transition: 0.8s, $offset-delay: 0.3s, $initial-delay: 0) {
+    @for $i from 1 through $number-of-items {
+        &:nth-child(#{$i}) {
+            transition: all $transition (($offset-delay * $i) + $initial-delay);
+        }
+    }
+}

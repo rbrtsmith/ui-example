@@ -1,0 +1,33 @@
+@if ($use-split) {
+/*------------------------------------*\
+    OBJECTS -> LISTS -> #SPLIT
+\*------------------------------------*/
+/**
+ * Simple split item for creating two elements floated 
+ * away from one another, on left one right.  Often used on
+ * definition lists.
+
+<dl class="o-split">
+	<dt class="o-split__key">
+		one
+	</dt>
+	<dd>
+		two
+	</dd>
+</dl>
+
+*/
+
+
+.o-split {
+	@include bare-list;
+	
+	text-align: right;
+}
+
+	.o-split__key {
+		float: left;
+		text-align: left;
+	}
+
+} /* close @if */

@@ -1,0 +1,54 @@
+/*------------------------------------*\
+    BASE -> #SCAFFOLDING
+\*------------------------------------*/
+
+html {
+    /** set root HTML font sizing */
+    @include root-size;
+
+    min-height:100%;        
+    &.touch {
+        /** fixes iOS bug for document root click handlers */
+        cursor: pointer;
+    } 
+}
+
+body {
+    @include font-size($base-font-size);
+
+    background: $site-background-color;
+    color: $base-text-color;
+    line-height: $base-line-height;
+    font-family: $base-font-family;
+}
+
+hr {
+    border: 0;
+    border-bottom: 1px solid $base-border-color;
+}
+
+
+
+/**
+ * Where `margin-bottom` is concerned, this value will be the same as the
+ * base line-height. This allows us to keep a consistent vertical rhythm.
+ */
+h1,h2,h3,h4,h5,h6,hgroup,
+ul,ol,dl,
+blockquote,p,address,
+table,
+fieldset,figure,
+pre, hr {
+    margin-bottom: $spacing-unit;
+}
+
+
+
+/**
+ * Where `margin-left` is concerned we want to try and indent certain elements
+ * by a consistent amount.
+ */
+ul,ol,dd{
+    margin-left: $spacing-unit * 2;
+}
+

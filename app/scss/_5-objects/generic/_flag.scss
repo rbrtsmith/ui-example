@@ -1,0 +1,77 @@
+@if ($use-flag) {
+/*------------------------------------*\
+    OBJECTS -> GENERIC -> ##FLAG
+\*------------------------------------*/
+
+
+/**
+ * The flag object allows you to display textual content.
+ * and image like content side by side, with the addition
+ * of being able to vertically align them, the default being
+ * middle.
+
+
+ * Vertically aligned to the top
+
+<div class="o-flag">
+	<div class="o-flag__component">
+		<img src="http://placehold.it/270x270" alt="">
+	</div>
+	<div class="o-flag__body o-flag__body--top">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, dignissimos?</p>
+	</div>
+</div>
+
+ * Vertically aligned to the bottom
+
+<div class="o-flag">
+	<div class="o-flag__component">
+		<img src="http://placehold.it/270x270" alt="">
+	</div>
+	<div class="o-flag__body o-flag__body--bottom">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, dignissimos?</p>
+	</div>
+</div>
+
+
+*/
+
+
+
+.o-flag {
+	display: table;
+	width: 100%;
+}
+	
+	.o-flag__component,
+	.o-flag__body {
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	.o-flag__component--top,
+	.o-flag__body--top {
+		vertical-align: top;
+	}
+
+	.o-flag__component--bottom,
+	.o-flag__body--bottom {
+		vertical-align: bottom;
+	}
+
+	.o-flag__body {
+		width: 100%;
+	}
+	
+	.o-flag__component {
+		white-space: nowrap;
+	}
+		
+		.o-flag__component > img {
+			display: block;
+			max-width: none;
+		}
+
+
+
+} /* Close @if */

@@ -1,0 +1,27 @@
+/*------------------------------------*\
+    $HEADINGS
+\*------------------------------------*/
+/**
+ * Set the default font-size and line-heights for headings.
+ */
+
+@mixin heading($size) {
+	@include font-size($size);
+	@if nth($size, 3) {
+		@include line-height($size);				
+	}
+}
+
+h1 {
+	@include heading($h1-font-size);
+}
+h2 {
+    @include heading($h2-font-size);
+}
+h3 {
+    @include heading($h3-font-size);
+}
+h4 {
+    @include heading($h4-font-size);
+}
+

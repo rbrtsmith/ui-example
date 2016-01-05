@@ -1,0 +1,10 @@
+/** 
+ * class that js uses to get scrollbar width.  element positioned offscreen.
+ */
+.c-scrollbar-measure {
+    position: absolute;
+    top: -999px;
+    overflow: scroll;
+    width: 100px;
+    height: 100px;
+}

@@ -1,0 +1,25 @@
+@if ($use-ui-link) {
+
+/*------------------------------------*\
+    OBJECTS -> GENERIC -> #UI-LINK
+\*------------------------------------*/
+/*
+ * removes all link styling including hover 
+ * states, useful for linked blocks of elements
+  where the block changes state rather than the text.
+
+	<a href="#" class="o-ui-link">
+		<article>
+			<h1>...</h1>
+			<p>...</p>
+		</article>
+	</a>
+
+  */
+
+.o-ui-link,
+.o-ui-links a {
+	@include ui-link();
+}
+
+} /* Close @if */

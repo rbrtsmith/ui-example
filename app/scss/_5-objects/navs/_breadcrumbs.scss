@@ -1,0 +1,46 @@
+@if ($use-breadcrumbs) {
+/*------------------------------------*\
+    OBJECTS -> NAVS -> ##BREADCRUMBS
+\*------------------------------------*/
+/**
+ * Breadcumb styling applied to ordered lists.
+ * 
+
+<ol class="o-inline-list o-breadcrumbs">
+	<li><a href="#">Foo</a></li>
+	<li><a href="#">Bar</a></li>
+	<li><a href="#">Baz</a></li>
+</ol>
+
+  
+
+  * Custom breadcrumbs
+
+<ol class="o-inline-list o-breadcrumbs">
+    <li>
+        <a href="#">Foo</a>
+    </li>
+    <li data-breadcrumb="|">
+        <a href="#">Bar</a>
+    </li>
+    <li data-breadcrumb="|">
+        <a href="#">Baz</a>
+    </li>
+</ol>
+
+ *
+ */
+$breadcrumbs-spacing: 0.2rem!default;
+
+.o-breadcrumbs li + li {
+	padding-left: $breadcrumbs-spacing;
+	&::before {
+		padding-right: $breadcrumbs-spacing;
+		content: " \00BB" "\00A0";
+	}
+	&[data-breadcrumb]::before {
+		content: attr(data-breadcrumb) "\00A0";
+	}
+}
+
+} /* Close @if */

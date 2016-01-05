@@ -1,0 +1,20 @@
+// /*------------------------------------*\
+//    #TOOLS -> MIXINS -> POSITIONING
+// \*------------------------------------*/
+@mixin positioning($position, $t: false, $r: false, $b: false, $l: false) {
+  @if ($position) {
+    position: $position;
+  }
+  @if ($t) {
+    top: $t;
+  }
+  @if ($r) {
+    right: $r;
+  }
+  @if ($b) {
+    bottom: $b;
+  }
+  @if ($l) {
+    left: $l;
+  }
+}

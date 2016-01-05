@@ -1,0 +1,11 @@
+// /*------------------------------------*\
+//    #TOOLS -> MIXINS -> HIDDEN
+// \*------------------------------------*/
+@mixin hidden() {
+    position: absolute;
+    top: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}

@@ -1,0 +1,42 @@
+@if ($use-text-input) {
+/*------------------------------------*\
+    COMPONENTS -> FORMS -> ##TEXT-INPUT
+\*------------------------------------*/
+/**
+ * Should be used on any kind of input that the user
+ * enters textual data, this is used instead of type 
+ * selector.
+ *
+    
+<form action="" method="">
+    <input type="text" class="c-text-input" name="">
+    <textarea name="message" class="c-text-input c-text-input--textarea"></textarea>
+</form>
+
+ */
+
+$border-color: $base-border-color;
+$text-input-textarea-height: 120px;
+$text-input-padding: 0.2rem 0.8rem;
+$large-text-input-padding: 0.5rem 1rem;
+$large-text-input: false;
+
+.c-text-input {
+	max-width: 100%;
+    padding: $text-input-padding;
+    border: 1px solid $border-color;
+}
+
+.c-text-input--textarea {
+    padding: $half-spacing-unit;
+    height: $text-input-textarea-height;
+}
+
+@if ($large-text-input) {
+    .c-text-input--lg {
+        padding: $large-text-input-padding;
+    }
+}
+
+
+} /* Close @if */
