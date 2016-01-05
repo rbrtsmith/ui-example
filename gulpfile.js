@@ -18,10 +18,10 @@ var gulp = require('gulp'),
     gulpIgnore = require('gulp-ignore'),
     cssDest = 'dist/css',
     imgDest = 'dist/img',
-    htmlDest = 'dist/fonts',
+    htmlDest = 'dist';
 
 
-gulp.task('style', function() {
+gulp.task('css', function() {
     return gulp.src('app/scss/style.scss')
         .pipe(newer(cssDest))
         .pipe(sourcemaps.init())
@@ -40,7 +40,7 @@ gulp.task('style', function() {
 
 
 gulp.task('html', function() {
-    return gulp.src('app/**/*')
+    return gulp.src('app/*.html')
         .pipe(gulp.dest(htmlDest))
         .pipe(livereload());
 });
@@ -78,9 +78,9 @@ gulp.task('image', function() {
 });
 
 
-gulp.task('default', 'style', 'image'], function() {
+gulp.task('default', ['html', 'css', 'image'], function() {
     livereload.listen();
-    gulp.watch('app/scss/**/*.scss', ['style']);
+    gulp.watch('app/scss/**/*.scss', ['css']);
     gulp.watch(['app/*.html'], ['html']);
     gulp.watch('app/img/**/*', ['image']);
 });
