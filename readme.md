@@ -10,3 +10,4 @@
 * The classnames are based on a BEM hybrid coined as [BEMMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/).
 * The only JavaScript provided is a polyfill to make external SVG sprites
 work in IE.
+* Minified CSS weight (Before Gzip) 11kb.
