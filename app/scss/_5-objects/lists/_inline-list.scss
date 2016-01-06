@@ -22,7 +22,6 @@
  */
 $list-spacing: $spacing-unit;
 
-$spaced: false;
 
 .o-inline-list {
 	@include bare-list;
@@ -38,17 +37,13 @@ $spaced: false;
 		vertical-align: middle;	
 	}
 
-	@if ($spaced) {
-		.o-inline-list--spaced {
-			margin-left: -$list-spacing;
-			margin-bottom: -$list-spacing;
+		.o-inline-list--spaced > li:not(:first-child) {
+			padding-left: $list-spacing;
 		}
 
-			.o-inline-list--spaced > li {
-				padding-left: $list-spacing;
-				padding-bottom: $list-spacing;
-			}
-	} /* Close @if */
+		.o-inline-list--spaced\/2 > li:not(:first-child) {
+			padding-left: ($list-spacing / 2);
+		}
 
 
 } /* Close @if */

@@ -22,18 +22,13 @@
 
 $bare-list-spacing: $spacing-unit !default;
 
-$bare-list-spaced: false !default;
 
 .o-bare-list {
 	@include bare-list;
 }
-@if ($bare-list-spaced) {
-	.o-bare-list > li:last-child {
-		margin-bottom: 0;
-	}
-	.o-bare-list--spaced > li {
+
+	.o-bare-list--spaced > li:not(:last-child) {
 		margin-bottom: $bare-list-spacing;
 	}
-}
 
 } /* Close @if */

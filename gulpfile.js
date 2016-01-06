@@ -18,6 +18,7 @@ var gulp = require('gulp'),
     gulpIgnore = require('gulp-ignore'),
     cssDest = 'dist/css',
     imgDest = 'dist/img',
+    jsPolyfillDest = 'dist/js/polyfills',
     htmlDest = 'dist';
 
 
@@ -39,11 +40,16 @@ gulp.task('css', function() {
 
 
 
-gulp.task('html', function() {
-    return gulp.src('app/*.html')
+gulp.task('moveFiles', function() {
+    gulp.src('app/*.html')
         .pipe(gulp.dest(htmlDest))
         .pipe(livereload());
+    gulp.src('app/js/Polyfills/*.js')
+        .pipe(gulp.dest(jsPolyfillDest))
+        .pipe(livereload());
+    return gulp;
 });
+
 
 gulp.task('image', function() {
     gulp.src(['app/img/media/**/*'])
@@ -78,9 +84,10 @@ gulp.task('image', function() {
 });
 
 
-gulp.task('default', ['html', 'css', 'image'], function() {
+gulp.task('default', ['moveFiles', 'css', 'image'], function() {
     livereload.listen();
     gulp.watch('app/scss/**/*.scss', ['css']);
-    gulp.watch(['app/*.html'], ['html']);
+    gulp.watch(['app/*.html'], ['moveFiles']);
+    gulp.watch(['app/js/polyfills/*.js'], ['moveFiles']);
     gulp.watch('app/img/**/*', ['image']);
 });

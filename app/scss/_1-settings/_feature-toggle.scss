@@ -12,17 +12,6 @@
 
 
 /*------------------------------------*\
-     $BASE
-\*------------------------------------*/
-
-/**
- * SCAFFOLDING
- */
-$use-scaffolding: 			true;
-$use-fading-placeholders: 	false;
-
-
-/*------------------------------------*\
      $OBJECTS
 \*------------------------------------*/
         
@@ -30,7 +19,7 @@ $use-fading-placeholders: 	false;
         
 
 /* GRID */
-$use-grid:               false;
+$use-grid:               true;
 
 /** GRID FLAGS */
 $use-grid--equal-height: false;
@@ -56,7 +45,7 @@ $use-bare-list:     true;
 /* INLINE-LIST - Dependencies: bare-list */
 $use-inline-list:   true; 
 /* SPLIT - Dependencies: bare-list */
-$use-split:         true; 
+$use-split:         false; 
 
 
 
@@ -75,13 +64,13 @@ $use-nav-fit:       false;
 /* ARTICLE - Dependancies: matrix */
 $use-article:           false; 
 /* BARE-LINK - Dependancies: ui-link */
-$use-bare-link:         true; 
+$use-bare-link:         false; 
 /* COLUMNS */
 $use-columns:           false;
 /* FLAG */
 $use-flag:              true;
 /* FLYOUT */
-$use-flyout:            true;
+$use-flyout:            false;
 /* PARAGRAPH-GROUP */
 $use-paragraph-group:   false;
 /* SECTION */
@@ -118,9 +107,9 @@ $use-width-1-1:   false;
 $use-width-1-2:   false;
 $use-width-1-3:   false;
 $use-width-2-3:   false;
-$use-width-1-4:   false;
+$use-width-1-4:   true;
 $use-width-2-4:   false;
-$use-width-3-4:   false;
+$use-width-3-4:   true;
 $use-width-1-5:   false;
 $use-width-2-5:   false;
 $use-width-3-5:   false;
@@ -250,10 +239,10 @@ $use-pull-11-12:  false;
 
 
 /* FONT-SIZE */
-$use-txt-xxl:   false;
+$use-txt-xxl:   true;
 $use-txt-xl:    false;
-$use-txt-lg:    false;
-$use-txt-md:    false;
+$use-txt-lg:    true;
+$use-txt-md:    true;
 $use-txt-sm:    false;
 $use-txt-xs:    false;
 $use-txt-xxs:   false;
@@ -267,7 +256,7 @@ $use-txt-bold:          false;
 $use-txt-semi-bold:     false;
 $use-txt-normal-weight: false;
 $use-txt-light:         false;
-$use-txt-italic:        false;
+$use-txt-italic:        true;
 $use-txt-underline:     false;
 $use-txt-nounderline:   false;
 
@@ -283,7 +272,7 @@ $use-text-right-at-sm-up:   false;
 $use-text-right-at-md-up:   false;
 $use-text-right-at-lg-up:   false;
 
-$use-text-center:               true;
+$use-text-center:               false;
 $use-text-center-at-xs-down:    false;
 $use-text-center-at-sm-down:    false;
 $use-text-center-at-md-down:    false;
@@ -305,7 +294,7 @@ $use-text-left-at-lg-up:    false;
 
 
 /* FLOATS */
-$use-float-left:            true;
+$use-float-left:            false;
 $use-float-left-at-xs-down: false;
 $use-float-left-at-sm-down: false;
 $use-float-left-at-md-down: false;
@@ -315,7 +304,7 @@ $use-float-left-at-sm-up:   false;
 $use-float-left-at-md-up:   false;
 $use-float-left-at-lg-up:   false;
 
-$use-float-right:            true;
+$use-float-right:            false;
 $use-float-right-at-xs-down: false;
 $use-float-right-at-sm-down: false;
 $use-float-right-at-md-down: false;
@@ -400,7 +389,7 @@ $use-push--bottom-at-sm-up:     false;
 $use-push--bottom-at-md-up:     false;
 $use-push--bottom-at-lg-up:     false;
 
-$use-push-half--bottom:             false;
+$use-push-half--bottom:             true;
 $use-push-half--bottom-at-xs-down:  false;
 $use-push-half--bottom-at-sm-down:  false;
 $use-push-half--bottom-at-md-down:  false;
@@ -411,7 +400,7 @@ $use-push-half--bottom-at-md-up:    false;
 $use-push-half--bottom-at-lg-up:    false;
 
 /* PUSH -> LEFT */
-$use-push--left:            false;
+$use-push--left:            true;
 $use-push--left-at-xs-down: false;
 $use-push--left-at-sm-down: false;
 $use-push--left-at-md-down: false;
@@ -476,7 +465,7 @@ $use-push-half--ends-at-lg-up:      false;
 
 
 /* FLUSH (REMOVE MARGINS) */
-$use-flush:             false;
+$use-flush:             true;
 $use-flush-at-xs-down:  false;
 $use-flush-at-sm-down:  false;
 $use-flush-at-md-down:  false;
@@ -509,7 +498,7 @@ $use-flush--right-at-md-up:     false;
 $use-flush--right-at-lg-up:     false;
 
 /* FLUSH -> BOTTOM */
-$use-flush--bottom:             false;
+$use-flush--bottom:             true;
 $use-flush--bottom-at-xs-down:  false;
 $use-flush--bottom-at-sm-down:  false;
 $use-flush--bottom-at-md-down:  false;
@@ -638,7 +627,7 @@ $use-soft-half--bottom-at-md-up:    false;
 $use-soft-half--bottom-at-lg-up:    false;
 
 /* SOFT -> LEFT */
-$use-soft--left:            false;
+$use-soft--left:            true;
 $use-soft--left-at-xs-down: false;
 $use-soft--left-at-sm-down: false;
 $use-soft--left-at-md-down: false;
@@ -680,7 +669,7 @@ $use-soft-half--sides-at-md-up:     false;
 $use-soft-half--sides-at-lg-up:     false;
 
 /* SOFT -> ENDS */
-$use-soft--ends:            false;
+$use-soft--ends:            true;
 $use-soft--ends-at-xs-down: false;
 $use-soft--ends-at-sm-down: false;
 $use-soft--ends-at-md-down: false;
@@ -796,13 +785,13 @@ $use-hard--ends-at-lg-up:   false;
 
 
 /* HIDDEN */
-$use-hidden:            false;
-$use-hidden-at-xs-down: false;
-$use-hidden-at-sm-down: false;
+$use-hidden:            true;
+$use-hidden-at-xs-down: true;
+$use-hidden-at-sm-down: true;
 $use-hidden-at-md-down: false;
 $use-hidden-at-lg-down: false;
 $use-hidden-at-xs-up:   false;
-$use-hidden-at-sm-up:   false;
+$use-hidden-at-sm-up:   true;
 $use-hidden-at-md-up:   false;
 $use-hidden-at-lg-up:   false;
 $use-hidden-sr:         false; /* Don't use if parent is position fixed!! */
@@ -853,4 +842,4 @@ $use-inline-block:  false;
 
 
 /* GENERIC */
-$use-fill-height: true;
+$use-fill-height: false;

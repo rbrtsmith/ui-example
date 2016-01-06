@@ -10,6 +10,9 @@
 	@if nth($size, 3) {
 		@include line-height($size);				
 	}
+
+    font-weight: 400;
+    font-family: $brand-font-family;
 }
 
 h1 {

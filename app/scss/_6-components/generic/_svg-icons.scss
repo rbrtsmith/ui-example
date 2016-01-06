@@ -1,0 +1,85 @@
+/*------------------------------------*\
+    COMPONENTS -> GENERIC -> #SVG-ICONS
+\*------------------------------------*/
+/**
+ * Styling for the SVG icons.
+ * Usually either positioned to the left or right of some text, or positioned by itself
+ * within the center of a container such as a button.
+ *
+
+<a href="#" class="c-svg-icon c-svg-icon--heart">
+    <svg class="c-svg-icon__svg c-svg-icon--heart__svg">
+        <use xlink:href="<?php bloginfo('template_directory'); ?>/img/source/media/svg/build/svg-sprite.svg#icon-heart"></use>
+    </svg>
+</a>
+
+ */
+
+
+
+/**
+ * Mixin to create an svg icon.  Takes one, two, or three arguments.
+ * The first argument expects a value which will set both the width and height
+ * values of the svg.  This mixin is not intended for icons with differing 
+ * widths and heights.
+ * `$x` and `$y` parameters target the x and y axis respectively and both have
+ * a default value of center which will center the svg.
+ * The `$x` parameter can hold the value of top and bottom.
+ * The `$y` parameter can hold the value of left and right.
+ * 
+ * The `$x` and `$y` arguments can be ommited and will default to center.
+ * @include build-svg(10px);
+ *
+ * Or passing in top-right
+ * @include build-svg(10px, right top);
+ */
+@mixin build-svg($size, $x:center, $y:center) {
+    width: $size;
+    height: $size;
+
+    @if $x == left {
+        left: 0;
+    } @elseif $x == right {
+        right: 0;
+    } @else {
+        left: 50%;
+        margin-left: -($size / 2);   
+    }
+
+    @if $y == top {
+        top: 0;
+    } @elseif $y == bottom {
+        bottom: 0;
+    } @else {
+        top: 50%;
+        margin-top: -($size / 2);
+    }
+}
+
+.c-svg-icon {
+    /* Base svg-icon */
+    position: relative;
+}
+
+    .c-svg-icon__svg {
+        position: absolute;
+    }
+
+
+.c-svg-icon--social {
+    $size: 2.8rem;
+
+    display: block;
+    width: $size;
+    height: $size;
+    margin: 0 auto;
+    fill: $brand-color;
+    transition: fill $brand-transition;
+    &:hover,
+    &:focus {
+        fill: darken($brand-color, 10%);
+    }
+    &__svg {
+        @include build-svg($size);
+    }
+}

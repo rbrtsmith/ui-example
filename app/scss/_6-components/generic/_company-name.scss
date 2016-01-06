@@ -1,0 +1,14 @@
+/*------------------------------------*\
+    COMPONENTS -> GENERIC -> #COMPANY_NAME
+\*------------------------------------*/
+.c-company-name {
+    @include font-size($txt-xxl);
+
+    margin: 0 $spacing-unit 0 $half-spacing-unit;
+    font-style: italic;
+    line-height: 0.8;
+
+    @include screen-xs-down {
+        margin-right: 0;
+    }
+}

@@ -1,0 +1,18 @@
+/*------------------------------------*\
+    COMPONENTS -> GENERIC -> #CARD
+\*------------------------------------*/
+
+.c-card {
+    padding-bottom: $spacing-unit;
+}
+
+.c-card--right {
+    float: right;
+    padding: $spacing-unit;
+    padding-top: 0;
+}
+
+    .c-card__header {
+        margin-bottom: 0;
+        font-weight: 600;
+    }

@@ -10,18 +10,18 @@
 /**
  * Theme specific coloring, in general order of precedence. 
  */
-$brand-color:   #f43338;
-$alpha-color:   #bbb;
-$beta-color:    #000;
+$brand-color:   #45d296; // mint green
+$alpha-color:   #eee; // light gray
+$beta-color:    #353535; // v dark grey
 $gamma-color:   #00f;
-$delta-color:   #fff;
+$delta-color:   #f8f8f8;
 $epsilon-color: #fff;
 $zeta-color:    #fff;
 /**
  * Set base colors for common objects.
  */
-$site-background-color: #FFF;
-$base-text-color: #111;
+$site-background-color: $delta-color;
+$base-text-color: $beta-color;
 $base-link-color: $brand-color;
 $base-border-color: #ddd;
 
@@ -65,13 +65,12 @@ $root-sizing-unit:  100%; /* [1] */
 $root-sizing-coefficient: 18; /* [2] */
 
 /* [3]		[4]	    [5]     [6] */
-$txt-xxl:   50px, 	1,		true;
+$txt-xxl:   55px,   4.5,    true;
 $txt-xl:    40px, 	0,		true;
-$txt-lg:    30px, 	-1,		true;
+$txt-lg:    30px, 	-1,		false;
 $txt-md:    20px, 	-2.5,	false;
 $txt-sm:    16px, 	-3.6,	false;
 $txt-xs:    14px, 	-3.6,	false;
-$txt-xxs:   12px, 	-3.6,	false;
 
 $base-font-size: $txt-sm; /* [7] */
 
@@ -80,7 +79,8 @@ $h2-font-size: $txt-lg;
 $h3-font-size: $txt-md;
 $h4-font-size: $txt-sm;
 
-$base-font-family: Source Sans Pro, arial, sans-serif; /* [9] */
+$base-font-family: sans-serif;
+$brand-font-family: georgia, serif; /* [9] */
 
 
 
@@ -109,7 +109,7 @@ $base-font-family: Source Sans Pro, arial, sans-serif; /* [9] */
  *    by diving `$base-site-wrap-width` by `$base-font-size`.
  */
 $initial-line-height:   24px; /* [1] AKA MAGIC NUMBER */
-$base-site-wrap-width:  1170px; /* [2] */
+$base-site-wrap-width:  1000px; /* [2] */
 
 /** 
  * NOTICE........... DO NOT MODIFY THIS GROUP!
@@ -139,7 +139,7 @@ $screen-md:  992px;
 $screen-sm:  768px;
 $screen-xs:  480px;
 $screen-xxs: 400px;
-$navbar-bp:  800px; /* [1] */
+$navbar-bp:  700px; /* [1] */
 
 /**
  * Define breakpoints for the grid.  Comment out or remove unused
@@ -155,7 +155,7 @@ $grid-breakpoints: (
     /* [1]      [2] */
 //    ( xxs-up,   $screen-xxs ),
 //    ( xs-up,    $screen-xs ),
-//    ( sm-up,    $screen-sm ),
+      ( sm-up,    $screen-sm ),
 //    ( md-up,    $screen-md ),
 //    ( lg-up,    $screen-lg )
 );

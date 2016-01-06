@@ -1,0 +1,20 @@
+/*------------------------------------*\
+    COMPONENTS -> GENERIC -> #SITE-FOOTER
+\*------------------------------------*/
+.c-site-footer {
+    padding: $spacing-unit 0;
+    background: $alpha-color;
+}
+
+    .c-site-footer__social-group {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+        @include screen-xs-up {
+            display: none;
+        }
+    }
+
+        .c-site-footer__social-group > li {
+            display: table-cell;
+        }

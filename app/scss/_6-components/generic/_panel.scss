@@ -1,0 +1,50 @@
+/*------------------------------------*\
+    COMPONENTS -> GENERIC -> #PANEL
+\*------------------------------------*/
+.c-panel {
+    display: block;
+    background: white;
+}
+
+    .c-panel__masthead {
+        margin: 0;
+        padding: $half-spacing-unit;
+    }
+
+    .c-panel__body {
+        padding: $half-spacing-unit;
+    }
+
+        .c-panel__body p:last-child {
+            margin-bottom: 0;
+        }
+
+    .c-panel__figure {
+        position: relative;
+        background: $base-text-color;
+    }
+
+        .c-panel__img {
+            display: block; /* Remove inline block spacing */
+            opacity: 1;
+            transition: all $brand-transition;
+            .c-panel--link:hover &,
+            .c-panel--link:focus & {
+                opacity: 0.5;
+            }
+        }
+
+            .c-panel__read-more {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                color: white;
+                transform: translate(-50%, -50%);
+                opacity: 0;
+                transition: all $brand-transition;
+                font-weight: bold;
+                .c-panel--link:hover &,
+                .c-panel--link:focus & {
+                    opacity: 1;
+                }
+            }

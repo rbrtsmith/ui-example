@@ -3,8 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <title>UI Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
-    <h1>Foo</h1>
+    <header class="u-soft--ends">
+        <div class="o-site-wrap o-site-wrap--padding">
+            <div class="o-flag">
+                <div class="o-flag__body">
+                    <div class="o-flag">
+                        <div class="o-flag__component">
+                            <img src="http://placehold.it/80x80" alt="Company logo">
+                        </div>
+                        <div class="o-flag__body">
+                            <h1 class="c-company-name">
+                                Company Name
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="o-flag__component u-hidden@xs-down">
+                    <ul class="o-inline-list o-inline-list--spaced/2">
+                        <li>
+                            <a href="#" class="c-svg-icon c-svg-icon--social">
+                                <svg class="c-svg-icon__svg c-svg-icon--social__svg">
+                                    <use xlink:href="img/sprite.svg#icon-facebook"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="c-svg-icon c-svg-icon--social">
+                                <svg class="c-svg-icon__svg c-svg-icon--social__svg">
+                                    <use xlink:href="img/sprite.svg#icon-twitter"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="c-svg-icon c-svg-icon--social">
+                                <svg class="c-svg-icon__svg c-svg-icon--social__svg">
+                                    <use xlink:href="img/sprite.svg#icon-google-plus"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>            
+        </div>
+    </header>
+    <div class="o-site-wrap o-site-wrap--padding">
+
+        <nav class="c-navbar">
+            <input class="c-navbar__toggle-check u-hidden" type="checkbox" name="navToggle" id="navToggle" aria-hidden="true">
+            <label class="c-navbar__toggle" for="navToggle" aria-hidden="true">
+                <span class="c-navbar__burger-wrap">
+                    <span class="c-navbar__burger c-navbar__burger--top"></span>
+                    <span class="c-navbar__burger c-navbar__burger--middle"></span>
+                    <span class="c-navbar__burger c-navbar__burger--bottom"></span>                    
+                </span>
+            </label>
+            <ul class="o-bare-list c-navbar__nav">
+                <li class="c-navbar__item">
+                    <a href="#" class="c-navbar__link">Home</a>
+                </li>
+                <li class="c-navbar__item">
+                    <a href="#" class="c-navbar__link">eBooks</a>
+                </li>
+                <li class="c-navbar__item">
+                    <a href="#" class="c-navbar__link c-navbar__link--is-current">Magazines</a>
+                </li>
+                <li class="c-navbar__item">
+                    <a href="#" class="c-navbar__link">Movies</a>
+                </li>
+                <li class="c-navbar__item">
+                    <a href="#" class="c-navbar__link">Help</a>
+                </li>
+                <li class="c-navbar__item">
+                    <a href="#" class="c-navbar__link">Login</a>
+                </li>
+            </ul>
+        </nav>
+
+        <main>
+            <div class="o-section">
+                <div class="o-grid">
+                    <div class="o-grid__item u-3/4@sm-up">
+                        <article class="c-panel">
+                            <header class="c-panel__masthead">
+                                <h1 class="u-flush--bottom">
+                                    Lorem ipsum dolor sit.
+                                </h1>
+                                posted on <time datetime="2015-05-15">15th May 2015</time> by <em>Robert Smith</em>
+                            </header>
+                            <figure class="u-flush--bottom">
+                                <img class="c-panel__img" src="http://placehold.it/1000x750" alt="">
+                            </figure>
+                            <div class="c-panel__body">
+                                <aside class="c-card c-card--right u-hidden@sm-down">
+                                    <h2 class="c-card__header u-txt-lg">
+                                        More...
+                                    </h2>
+                                    <ul class="u-flush u-soft--left">
+                                        <li><a href="">Lorem ipsum dolor sit.</a></li>
+                                        <li><a href="">Lorem ipsum dolor.</a></li>
+                                        <li><a href="">Lorem ipsum dolor sit.</a></li>
+                                        <li><a href="">Lorem ipsum.</a></li>
+                                    </ul>
+                                </aside>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo expedita nam quidem harum dolore inventore! Molestiae aliquam voluptates quod ab quae commodi, doloribus laboriosam quaerat perferendis suscipit nemo ipsam, deserunt velit dolorum eum hic repellat aut eaque in alias vitae similique tempora. Nisi minima necessitatibus recusandae fuga facere placeat molestias numquam quae delectus! Eveniet, debitis veniam est eos magni culpa suscipit totam facere aut perferendis, tempore rerum accusantium. Temporibus porro cupiditate minus blanditiis debitis incidunt voluptatibus inventore, veritatis, pariatur vero quod dignissimos nisi. Dicta quis maiores id ad, deleniti. Minima, facilis eos ipsum earum error. Cum ad sit incidunt quo.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam eius modi ad culpa molestias, amet, explicabo iste pariatur corrupti reprehenderit sunt est dolores unde. Dolorum eius pariatur eum, perferendis incidunt reprehenderit in dolores enim ad maxime alias deserunt distinctio quae, magni, iste vel similique. Cupiditate quos, iure hic odit odio.</p>                                
+                                <aside class="c-card u-hidden@sm-up" aria-hidden="true">
+                                    <h2 class="c-card__header u-txt-lg">
+                                        More...
+                                    </h2>
+                                    <ul class="u-flush u-soft--left">
+                                        <li><a href="">Lorem ipsum dolor sit.</a></li>
+                                        <li><a href="">Lorem ipsum dolor.</a></li>
+                                        <li><a href="">Lorem ipsum dolor sit.</a></li>
+                                        <li><a href="">Lorem ipsum.</a></li>
+                                    </ul>
+                                </aside>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="o-grid__item u-1/4 u-hidden@sm-down">
+                        <ul class="o-bare-list o-bare-list--spaced">
+                            <li>
+                                <a href="#" class="c-panel c-panel--link o-ui-link">
+                                    <article>
+                                        <h1 class="c-panel__masthead u-txt-lg">
+                                            A guide to snoopsetting
+                                        </h1>
+                                        <figure class="c-panel__figure u-flush--bottom">
+                                            <div class="c-panel__read-more u-txt-md">
+                                                Read more
+                                            </div>
+                                            <img class="c-panel__img" src="http://placehold.it/300x300" alt="">
+                                        </figure>
+                                    </article>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="c-panel c-panel--link o-ui-link">
+                                    <article>
+                                        <h1 class="c-panel__masthead u-txt-lg">
+                                            Welcome to the Surveillance State
+                                        </h1>
+                                        <figure class="c-panel__figure u-flush--bottom">
+                                            <div class="c-panel__read-more u-txt-md">
+                                                Read more
+                                            </div>
+                                            <img class="c-panel__img" src="http://placehold.it/300x300" alt="">
+                                        </figure>
+                                    </article>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>        
+    </div>
+
+    <div class="c-site-footer">
+        <div class="o-site-wrap o-site-wrap--padding">
+            <ul class="c-site-footer__social-group o-bare-list">
+                <li>
+                    <a href="#" class="c-svg-icon c-svg-icon--social">
+                        <svg class="c-svg-icon__svg c-svg-icon--social__svg">
+                            <use xlink:href="img/sprite.svg#icon-facebook"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="c-svg-icon c-svg-icon--social">
+                        <svg class="c-svg-icon__svg c-svg-icon--social__svg">
+                            <use xlink:href="img/sprite.svg#icon-twitter"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="c-svg-icon c-svg-icon--social">
+                        <svg class="c-svg-icon__svg c-svg-icon--social__svg">
+                            <use xlink:href="img/sprite.svg#icon-google-plus"></use>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- Polyfill for external SVG sprites in IE -->
+    <script src="js/polyfills/svg-4-everybody.js"></script>
 </body>
 </html>
