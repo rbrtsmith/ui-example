@@ -11,3 +11,4 @@
 * The only JavaScript provided is a polyfill to make external SVG sprites
 work in IE.
 * Minified CSS weight (Before Gzip) 11kb.
+* Tested in Chrome44, FF42, Safari 8.
